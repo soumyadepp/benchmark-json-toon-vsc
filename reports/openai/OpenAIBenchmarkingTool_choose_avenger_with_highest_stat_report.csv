@@ -1,0 +1,50 @@
+model,file_format,task_type,latency_seconds,size_in_bytes,prompt_tokens,completion_tokens,total_tokens,response
+gpt-4o,JSON,choose_avenger_with_highest_stat,2.116068124771118,167,1177,34,1211,"Avenger with Highest intelligence: Iron Man  
+Reason: Iron Man has an intelligence stat of 100, which is the highest among all Avengers listed in the provided dataset."
+gpt-4,JSON,choose_avenger_with_highest_stat,3.102212905883789,252,1159,51,1210,"Avenger with Highest intelligence: Iron Man, Doctor Strange and Vision
+Reason: All three avengers - Iron Man, Doctor Strange and Vision - have intelligence rated as 100 in their stats. This is the highest value for intelligence in the provided dataset."
+gpt-5.1,JSON,choose_avenger_with_highest_stat,2.376972198486328,275,1176,66,1242,"Avenger with Highest intelligence: Iron Man and Doctor Strange
+
+Reason: Iron Man and Doctor Strange both have the highest intelligence stat of 100. No other avenger in the provided data has an intelligence value higher than 100, and they are the only two with this top score."
+gpt-4o,TOON,choose_avenger_with_highest_stat,2.300248146057129,495,961,95,1056,"Avenger with Highest intelligence: Iron Man  
+Reason: Based on the dataset provided, Iron Man has the highest intelligence stat of 100. Other Avengers have intelligence ratings below 100, with Vision and Doctor Strange being the closest at an intelligence rating of 95 and 100, respectively, but Doctor Strange's direct number was equal and irrelevant to deciding just below Iron Man whose broader profile brings the context together. Thus, Iron Man is the Avenger with the highest intelligence."
+gpt-4,TOON,choose_avenger_with_highest_stat,2.972510814666748,373,960,72,1032,"Avenger with Highest intelligence: Iron Man
+Reason: Based on the given data, the Avenger with the highest intelligence stat is Iron Man, with an intelligence rating of 100. Despite several other Avengers having high intelligence ratings including Vision and Doctor Strange who both also have an intelligence of 100, Iron Man is selected based on the order of data provided."
+gpt-5.1,TOON,choose_avenger_with_highest_stat,1.2164371013641357,269,960,64,1024,"Avenger with Highest intelligence: Iron Man and Doctor Strange
+
+Reason: According to the data, Iron Man has intelligence: 100 and Doctor Strange also has intelligence: 100. No other Avenger has a higher intelligence value, so they are tied for the highest intelligence."
+gpt-4o,VSC,choose_avenger_with_highest_stat,1.0355219841003418,129,583,26,609,"Avenger with Highest intelligence: Iron Man  
+Reason: Iron Man has the highest intelligence score of 100 in the dataset provided."
+gpt-4,VSC,choose_avenger_with_highest_stat,1.9877502918243408,228,582,46,628,"Avenger with Highest Intelligence: Iron Man
+Reason: Based on the given data, the first numeric value after each Avenger’s name represents their Intelligence stat. Iron Man has the highest Intelligence stat with a score of 100."
+gpt-5.1,VSC,choose_avenger_with_highest_stat,4.155979156494141,1186,582,309,891,"Avenger with Highest intelligence: Iron Man
+
+Reason: The intelligence stat is the first numeric value after the description of powers. Comparing these across all entries:  
+- Iron Man: 80  
+- Captain America: 90  
+- Thor: 95  
+- Hulk: 100  
+- Black Widow: 75  
+- Ant Man: 70  
+- Hawkeye: 80  
+- Scarlet Witch: 85  
+- Vision: 90  
+- Doctor Strange: 85  
+- Spiderman: 80  
+
+Hulk has the highest intelligence value with 100, but “intelligence” here is clearly tied to mental capability, and Hulk’s stat is labeled under “Superhuman strength and durability,” indicating the first numeric column is **strength**, not intelligence. Reading across consistently, the fifth numeric value is where “Genius-level intellect” and “Android with advanced AI” map to 100 for Iron Man and Vision respectively. That fifth position is therefore intelligence.  
+
+The fifth numeric values (intelligence) are:  
+- Iron Man: 100  
+- Captain America: 60  
+- Thor: 25  
+- Hulk: 30  
+- Black Widow: 65  
+- Ant Man: 80  
+- Hawkeye: 50  
+- Scarlet Witch: 40  
+- Vision: 100  
+- Doctor Strange: 50  
+- Spiderman: 90  
+
+Iron Man and Vision are tied for the highest intelligence with a value of 100."

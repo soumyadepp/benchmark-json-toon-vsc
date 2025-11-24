@@ -1,0 +1,16 @@
+model,file_format,task_type,latency_seconds,size_in_bytes,prompt_tokens,completion_tokens,total_tokens,response
+gemini-2.0-flash,json,FIND_SUITABLE_AVENGER_FOR_TASK,1.2737159729003906,148,1394,34,1428,"Chosen Avenger: Ant Man
+Reason: Ant Man's size manipulation power and high speed (90) make him ideal for infiltrating a secure building undetected.
+"
+gemini-2.5-flash,json,FIND_SUITABLE_AVENGER_FOR_TASK,6.600017070770264,352,1402,82,1484,"Chosen Avenger: Ant Man
+Reason: Ant Man's power of ""size manipulation"" allows him to ""shrink to the size of an ant,"" which is ideal for ""breaking into a very secure building"" by bypassing physical security measures. Additionally, his high intelligence (85) and tech (80) stats make him well-suited for the task of ""stealing important data"" once inside."
+gemini-2.0-flash,toon,FIND_SUITABLE_AVENGER_FOR_TASK,1.077942132949829,143,1077,29,1106,"Chosen Avenger: Ant Man
+Reason: With his size manipulation power, Ant Man can shrink and infiltrate the building undetected to steal the data.
+"
+gemini-2.5-flash,toon,FIND_SUITABLE_AVENGER_FOR_TASK,15.156524896621704,311,1085,66,1151,"Chosen Avenger: Ant Man
+Reason: Ant Man's power of size manipulation allows him to discreetly break into a very secure building by shrinking to bypass security measures and access restricted areas. His high intelligence (85) and tech (80) stats also make him well-suited for the task of stealing important data."
+gemini-2.0-flash,vsc,FIND_SUITABLE_AVENGER_FOR_TASK,1.0456268787384033,147,686,29,715,"Chosen Avenger: Ant Man
+Reason: Ant Man's size manipulation abilities would allow him to infiltrate the building undetected and retrieve the data.
+"
+gemini-2.5-flash,vsc,FIND_SUITABLE_AVENGER_FOR_TASK,8.86411190032959,349,694,76,770,"Chosen Avenger: Ant Man
+Reason: Ant Man's unique ability of size manipulation (Stealth 90) makes him exceptionally suited to ""break into a very secure building"" by shrinking to bypass physical security. As a scientist with high intelligence (80) and tech (85) scores, he also possesses the capabilities required to handle and ""steal important data""."

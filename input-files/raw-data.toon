@@ -1,0 +1,121 @@
+avengers[11] {id, name, power, description}:
+  - id: 1
+  name: Iron Man
+  power: Genius-level intellect
+  stats:
+    - attack: 80
+    defense: 90
+    speed: 75
+    intelligence: 100
+    tech: 100
+  description: A wealthy businessman and inventor who builds a powered suit of armor to become the superhero"
+
+  - id: 2
+  name: Captain America
+  power: Superhuman strength and agility
+  stats:
+    - attack: 90
+    defense: 95
+    speed: 80
+    intelligence: 70
+    tech: 60
+  description: A super-soldier from World War II who fights for justice and freedom
+
+  - id: 3
+  name: Thor
+  power: God of Thunder
+  stats:
+    - attack: 95
+    defense: 85
+    speed: 70
+    intelligence: 60
+    tech: 25
+  description: The Norse god of thunder who wields the enchanted hammer Mjolnir
+
+  - id: 4
+  name: Hulk
+  power: Superhuman strength and durability
+  stats:
+    - attack: 100
+    defense: 80
+    speed: 60
+    intelligence: 50
+    tech: 30
+  description: A scientist who transforms into a giant green-skinned creature when angry
+
+  - id: 5
+  name: Black Widow
+  power: Expert martial artist and spy
+  stats:
+    - attack: 75
+    defense: 70
+    speed: 85
+    intelligence: 80
+    tech: 65
+  description: A former Russian spy who becomes a member of the Avengers
+
+  - id: 6
+  name: Ant Man
+  power: Size manipulation
+  stats:
+    - attack: 70
+    defense: 65
+    speed: 90
+    intelligence: 85
+    tech: 80
+  description: A scientist who can shrink to the size of an ant while increasing his strength
+
+  - id: 7
+  name: Hawkeye
+  power: Master archer
+  stats:
+    - attack: 80
+    defense: 60
+    speed: 85
+    intelligence: 75
+    tech: 50
+  description: A skilled marksman who uses a bow and arrow to fight crime
+
+  - id: 8
+  name: Scarlet Witch
+  power: Reality manipulation
+  stats:
+    - attack: 85
+    defense: 70
+    speed: 75
+    intelligence: 90
+    tech: 40
+  description: A powerful mutant with the ability to alter reality itself
+
+  - id: 9
+  name: Vision
+  power: Android with advanced AI
+  stats:
+    - attack: 90
+    defense: 85
+    speed: 80
+    intelligence: 95
+    tech: 100
+  description: A synthetic being created by Ultron who joins the Avengers
+
+  - id: 10
+  name: Doctor Strange
+  power: Mastery of the mystic arts
+  stats:
+    - attack: 85
+    defense: 80
+    speed: 70
+    intelligence: 100
+    tech: 50
+  description: A former neurosurgeon who becomes the Sorcerer Supreme to protect the world
+
+  - id: 11
+  name: Spiderman
+  power: Wall-crawling and spider-sense
+  stats:
+    - attack: 80
+    defense: 70
+    speed: 90
+    intelligence: 90
+    tech: 90
+  description: A young superhero with spider-like abilities who fights crime in New York City
