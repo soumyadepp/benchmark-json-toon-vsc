@@ -46,6 +46,12 @@ class GeminiBenchmarkingTool(BenchmarkingToolBase):
         self.results: GeminiBenchmarkingResults = GeminiBenchmarkingResults(results=[])
 
     def run_benchmarking_on_models(self, task_type: TaskTypes, **kwargs) -> None:
+        """Run benchmarking on the MODELS_TO_ANALYZE.
+
+        Args:
+            task_type: The task for which benchmarking is to be run.
+            **kwargs: Additional keyword arguments.
+        """
         bm_results: List[GeminiBenchmarkResult] = []
 
         for file_format in FileFormats:
@@ -84,6 +90,11 @@ class GeminiBenchmarkingTool(BenchmarkingToolBase):
         self.results = GeminiBenchmarkingResults(results=bm_results)
 
     def export_results_to_csv(self, file_path: str) -> None:
+        """Exports the generated results to a CSV file.
+
+        Args:
+            file_path (str): The name of the file where the results are to be exported
+        """
         benchmarking_results = self.results.results
 
         if not benchmarking_results:

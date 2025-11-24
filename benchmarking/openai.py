@@ -45,6 +45,12 @@ class OpenAIBenchmarkingTool(BenchmarkingToolBase):
         self.results: OpenAIBenchmarkingResults = OpenAIBenchmarkingResults(results=[])
 
     def run_benchmarking_on_models(self, task_type: TaskTypes, **kwargs) -> None:
+        """Run benchmarking on the models
+
+        Args:
+            task_type: The task for which benchmarking is to be run.
+            **kwargs: Additional keyword arguments.
+        """
         bm_results: List[OpenAIBenchmarkResult] = []
 
         for file_format in FileFormats:
