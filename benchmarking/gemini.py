@@ -34,7 +34,7 @@ class GeminiBenchmarkingTool(BenchmarkingToolBase):
     MODELS_TO_ANALYZE: list[str] = [
         "gemini-2.0-flash",
         "gemini-2.5-flash",
-        # "gemini-2.5-pro",
+        "gemini-2.5-pro",
     ]
 
     DIR_TO_SAVE_RESULTS: str = "reports/gemini/"
