@@ -1,7 +1,7 @@
 import abc
 import dataclasses
-from typing import TypedDict
-from tasks import TaskTypes
+from typing import Any, TypedDict
+from tasks import FileFormats, TaskTypes
 
 
 @dataclasses.dataclass
@@ -34,11 +34,21 @@ class BenchmarkingToolBase(abc.ABC):
     """A base class for all benchmarking tools."""
 
     @abc.abstractmethod
-    def run_benchmarking_on_models(self, task_type: TaskTypes, **kwargs) -> None:
+    def call_llm_and_format_response(
+        self, model: str, prompt: str, task_type: TaskTypes, file_format: FileFormats
+    ) -> BenchMarkingResultBase | None:
+        """Calls the respective LLM model with the prompt and returns the response metadata"""
+        pass
+
+    @abc.abstractmethod
+    def run_benchmarking_on_models(
+        self, task_type: TaskTypes, file_format: FileFormats, **kwargs
+    ) -> None:
         """Run benchmarking on a list of models for a given task.
 
         Args:
             task_type: The type of task to benchmark.
+            file_format: The file format to use for the task.
             **kwargs: Additional keyword arguments to pass to the prompt builder.
         """
         pass

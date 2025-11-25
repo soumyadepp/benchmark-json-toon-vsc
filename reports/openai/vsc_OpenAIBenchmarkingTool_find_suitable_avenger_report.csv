@@ -1,0 +1,7 @@
+model,file_format,task_type,latency_seconds,size_in_bytes,prompt_tokens,completion_tokens,total_tokens,response
+gpt-4o,VSC,find_suitable_avenger,7.066877841949463,286,628,49,677,"Chosen Avenger: Black Widow  
+Reason: Black Widow is described as an expert martial artist and spy, indicating her proficiency in covert operations and infiltration. Her skills would be highly suitable for breaking into a secure building and retrieving important data without detection."
+gpt-4,VSC,find_suitable_avenger,2.659719944000244,402,630,80,710,"Chosen Avenger: Ant Man
+Reason: Ant Man has the power of size manipulation which is perfect for breaking into secure facilities as he can shrink to the size of an ant and avoid detection. His high rating in agility (90) and intelligence (85) would also guarantee successful data theft. Additionally, his power of increasing strength while shrinked ensures that physical obstacles will not be a problem."
+gpt-5.1,VSC,find_suitable_avenger,2.051109790802002,184,627,44,671,"Chosen Avenger: Black Widow  
+Reason: She is explicitly described as an “expert martial artist and spy,” making her best suited for covert infiltration and theft of important data."

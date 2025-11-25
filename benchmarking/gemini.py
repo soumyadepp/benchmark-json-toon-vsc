@@ -45,47 +45,85 @@ class GeminiBenchmarkingTool(BenchmarkingToolBase):
 
         self.results: GeminiBenchmarkingResults = GeminiBenchmarkingResults(results=[])
 
-    def run_benchmarking_on_models(self, task_type: TaskTypes, **kwargs) -> None:
+    def call_llm_and_format_response(
+        self, model: str, prompt: str, task_type: TaskTypes, file_format: FileFormats
+    ) -> GeminiBenchmarkResult | None:
+        """Calls Gemini model with given prompt
+
+        Args:
+            model (str): The LLM model to use.
+            prompt (str): The prompt to send to the model.
+
+
+        Raises:
+            ValueError: If the model is not supported.
+
+        Returns:
+            GenerateContentResponse: The response from the model.
+        """
+        if model not in self.MODELS_TO_ANALYZE:
+            raise ValueError(f"Unsupported model: {model}")
+
+        try:
+            start_time = time.time()
+            genai_model = GenerativeModel(model_name=model)
+            response = genai_model.generate_content(
+                prompt,
+                generation_config={"temperature": 0.2},
+                safety_settings=None,
+            )
+            return {
+                "model": model,
+                "file_format": file_format.name,
+                "task_type": task_type.name,
+                "latency_seconds": calculate_latency(start_time),
+                "size_in_bytes": len(response.text.encode("utf-8")),
+                "prompt_tokens": response.usage_metadata.prompt_token_count,
+                "completion_tokens": response.usage_metadata.candidates_token_count,
+                "total_tokens": response.usage_metadata.total_token_count,
+                "response": response.text,
+            }
+        except Exception as e:
+            logger.error(f"Error calling Gemini model {model}: {e}")
+
+    def run_benchmarking_on_models(
+        self, task_type: TaskTypes, file_format: FileFormats, **kwargs
+    ) -> None:
         """Run benchmarking on the MODELS_TO_ANALYZE.
 
         Args:
             task_type: The task for which benchmarking is to be run.
+            file_format: The file format to use for the task.
             **kwargs: Additional keyword arguments.
         """
         bm_results: List[GeminiBenchmarkResult] = []
 
-        for file_format in FileFormats:
-            logger.info(f"Prompting with file format: {file_format.name}")
+        logger.info(
+            f"Prompting for task: {task_type.value} with file format: {file_format.name}"
+        )
+        try:
             prompt = PromptBuilder(file_format=file_format).build_prompt(
                 task_type=task_type, **kwargs
             )
+        except ValueError as e:
+            logger.error("Unable to build prompt: %s", e)
+            return
 
+        try:
             for model in self.MODELS_TO_ANALYZE:
                 logger.info(f"Using model: {model}")
-                start_time = time.time()
-                genai_model = GenerativeModel(model_name=model)
-
-                response = genai_model.generate_content(
-                    prompt, generation_config={"temperature": 0.2}, safety_settings=None
+                result = self.call_llm_and_format_response(
+                    model=model,
+                    prompt=prompt,
+                    task_type=task_type,
+                    file_format=file_format,
                 )
-                text = response.text or ""
-                usage = response.usage_metadata
-                input_tokens = usage.prompt_token_count or 0
-                output_tokens = usage.candidates_token_count or 0
-                total_tokens = input_tokens + output_tokens
-
-                result: GeminiBenchmarkResult = {
-                    "model": model,
-                    "file_format": file_format.value,
-                    "task_type": task_type.name,
-                    "latency_seconds": calculate_latency(start_time),
-                    "size_in_bytes": len(text.encode("utf-8")),
-                    "prompt_tokens": input_tokens or 0,
-                    "completion_tokens": output_tokens or 0,
-                    "total_tokens": total_tokens or 0,
-                    "response": text,
-                }
+                if result is None:
+                    continue
                 bm_results.append(result)
+        except Exception as e:
+            logger.error("Error running benchmarking: %s", e)
+            return
 
         self.results = GeminiBenchmarkingResults(results=bm_results)
 

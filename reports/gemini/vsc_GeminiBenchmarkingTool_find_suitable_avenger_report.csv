@@ -1,0 +1,8 @@
+model,file_format,task_type,latency_seconds,size_in_bytes,prompt_tokens,completion_tokens,total_tokens,response
+gemini-2.0-flash,VSC,FIND_SUITABLE_AVENGER_FOR_TASK,1.3310949802398682,147,686,29,715,"Chosen Avenger: Ant Man
+Reason: Ant Man's size manipulation abilities would allow him to infiltrate the building undetected and retrieve the data.
+"
+gemini-2.5-flash,VSC,FIND_SUITABLE_AVENGER_FOR_TASK,13.183580160140991,347,694,69,3037,"Chosen Avenger: Black Widow
+Reason: As an ""expert martial artist and spy,"" Black Widow's core skills directly align with the task of covert infiltration (""breaking into a very secure building"") and intelligence acquisition (""steal important data""). Her high stealth (85) and agility (80) scores further indicate her proficiency in such operations."
+gemini-2.5-pro,VSC,FIND_SUITABLE_AVENGER_FOR_TASK,11.219735145568848,264,694,50,1910,"Chosen Avenger: Black Widow
+Reason: The data explicitly describes her as an ""Expert martial artist and spy"" and a ""former Russian spy."" This professional background is the most suitable for a mission that requires breaking into a secure building and stealing data."

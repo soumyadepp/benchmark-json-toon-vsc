@@ -1,0 +1,100 @@
+model,file_format,task_type,latency_seconds,size_in_bytes,prompt_tokens,completion_tokens,total_tokens,response
+gemini-2.0-flash,TOON,CALCULATE_COMPOSITE_SCORE,6.41520881652832,1420,1117,1034,2151,"Iron Man: 88.25
+Reasoning: (80 * 0.3) + (90 * 0.25) + (75 * 0.2) + (100 * 0.15) + (100 * 0.1) = 24 + 22.5 + 15 + 15 + 10 = 86.5
+
+Captain America: 82.75
+Reasoning: (90 * 0.3) + (95 * 0.25) + (80 * 0.2) + (70 * 0.15) + (60 * 0.1) = 27 + 23.75 + 16 + 10.5 + 6 = 83.25
+
+Thor: 77.5
+Reasoning: (95 * 0.3) + (85 * 0.25) + (70 * 0.2) + (60 * 0.15) + (25 * 0.1) = 28.5 + 21.25 + 14 + 9 + 2.5 = 75.25
+
+Hulk: 75.5
+Reasoning: (100 * 0.3) + (80 * 0.25) + (60 * 0.2) + (50 * 0.15) + (30 * 0.1) = 30 + 20 + 12 + 7.5 + 3 = 72.5
+
+Black Widow: 75.75
+Reasoning: (75 * 0.3) + (70 * 0.25) + (85 * 0.2) + (80 * 0.15) + (65 * 0.1) = 22.5 + 17.5 + 17 + 12 + 6.5 = 75.5
+
+Ant Man: 78.75
+Reasoning: (70 * 0.3) + (65 * 0.25) + (90 * 0.2) + (85 * 0.15) + (80 * 0.1) = 21 + 16.25 + 18 + 12.75 + 8 = 76
+
+Hawkeye: 74.25
+Reasoning: (80 * 0.3) + (60 * 0.25) + (85 * 0.2) + (75 * 0.15) + (50 * 0.1) = 24 + 15 + 17 + 11.25 + 5 = 72.25
+
+Scarlet Witch: 76.25
+Reasoning: (85 * 0.3) + (70 * 0.25) + (75 * 0.2) + (90 * 0.15) + (40 * 0.1) = 25.5 + 17.5 + 15 + 13.5 + 4 = 75.5
+
+Vision: 88.25
+Reasoning: (90 * 0.3) + (85 * 0.25) + (80 * 0.2) + (95 * 0.15) + (100 * 0.1) = 27 + 21.25 + 16 + 14.25 + 10 = 88.5
+
+Doctor Strange: 83
+Reasoning: (85 * 0.3) + (80 * 0.25) + (70 * 0.2) + (100 * 0.15) + (50 * 0.1) = 25.5 + 20 + 14 + 15 + 5 = 79.5
+
+Spiderman: 82.5
+Reasoning: (80 * 0.3) + (70 * 0.25) + (90 * 0.2) + (90 * 0.15) + (90 * 0.1) = 24 + 17.5 + 18 + 13.5 + 9 = 82
+"
+gemini-2.5-flash,TOON,CALCULATE_COMPOSITE_SCORE,12.496683120727539,1574,1125,1024,3867,"Here are the composite scores for each Avenger, calculated strictly based on the provided data and formula:
+
+Iron Man: 86.5
+Reasoning: Calculated as (80*0.3) + (90*0.25) + (75*0.2) + (100*0.15) + (100*0.1) = 24 + 22.5 + 15 + 15 + 10 = 86.5
+
+Captain America: 83.25
+Reasoning: Calculated as (90*0.3) + (95*0.25) + (80*0.2) + (70*0.15) + (60*0.1) = 27 + 23.75 + 16 + 10.5 + 6 = 83.25
+
+Thor: 75.25
+Reasoning: Calculated as (95*0.3) + (85*0.25) + (70*0.2) + (60*0.15) + (25*0.1) = 28.5 + 21.25 + 14 + 9 + 2.5 = 75.25
+
+Hulk: 72.5
+Reasoning: Calculated as (100*0.3) + (80*0.25) + (60*0.2) + (50*0.15) + (30*0.1) = 30 + 20 + 12 + 7.5 + 3 = 72.5
+
+Black Widow: 75.5
+Reasoning: Calculated as (75*0.3) + (70*0.25) + (85*0.2) + (80*0.15) + (65*0.1) = 22.5 + 17.5 + 17 + 12 + 6.5 = 75.5
+
+Ant Man: 76.0
+Reasoning: Calculated as (70*0.3) + (65*0.25) + (90*0.2) + (85*0.15) + (80*0.1) = 21 + 16.25 + 18 + 12.75 + 8 = 76.0
+
+Hawkeye: 72.25
+Reasoning: Calculated as (80*0.3) + (60*0.25) + (85*0.2) + (75*0.15) + (50*0.1) = 24 + 15 + 17 + 11.25 + 5 = 72.25
+
+Scarlet Witch: 75.5
+Reasoning: Calculated as (85*0.3) + (70*0.25) + (75*0.2) + (90*0.15) + (40*0.1) = 25.5 + 17.5 + 15 + 13.5 + 4 = 75.5
+
+Vision: 88.5
+Reasoning: Calculated as (90*0.3) + (85*0.25) + (80*0.2) + (95*0.15) + (100*0.1) = 27 + 21.25 + 16 + 14.25 + 10 = 88.5
+
+Doctor Strange: 79.5
+Reasoning: Calculated as (85*0.3) + (80*0.25) + (70*0.2) + (100*0.15) + (50*0.1) = 25.5 + 20 + 14 + 15 + 5 = 79.5
+
+Spiderman: 82.0
+Reasoning: Calculated as (80*0.3) + (70*0.25) + (90*0.2) + (90*0.15) + (90*0.1) = 24 + 17.5 + 18 + 13.5 + 9 = 82.0"
+gemini-2.5-pro,TOON,CALCULATE_COMPOSITE_SCORE,24.148437023162842,1863,1125,872,4583,"Iron Man: 86.5
+Reasoning: The score is calculated using the provided formula with Iron Man's stats: (80 * 0.3) + (90 * 0.25) + (75 * 0.2) + (100 * 0.15) + (100 * 0.1).
+
+Captain America: 83.25
+Reasoning: The score is calculated using the provided formula with Captain America's stats: (90 * 0.3) + (95 * 0.25) + (80 * 0.2) + (70 * 0.15) + (60 * 0.1).
+
+Thor: 75.25
+Reasoning: The score is calculated using the provided formula with Thor's stats: (95 * 0.3) + (85 * 0.25) + (70 * 0.2) + (60 * 0.15) + (25 * 0.1).
+
+Hulk: 72.5
+Reasoning: The score is calculated using the provided formula with Hulk's stats: (100 * 0.3) + (80 * 0.25) + (60 * 0.2) + (50 * 0.15) + (30 * 0.1).
+
+Black Widow: 75.5
+Reasoning: The score is calculated using the provided formula with Black Widow's stats: (75 * 0.3) + (70 * 0.25) + (85 * 0.2) + (80 * 0.15) + (65 * 0.1).
+
+Ant Man: 76.0
+Reasoning: The score is calculated using the provided formula with Ant Man's stats: (70 * 0.3) + (65 * 0.25) + (90 * 0.2) + (85 * 0.15) + (80 * 0.1).
+
+Hawkeye: 72.25
+Reasoning: The score is calculated using the provided formula with Hawkeye's stats: (80 * 0.3) + (60 * 0.25) + (85 * 0.2) + (75 * 0.15) + (50 * 0.1).
+
+Scarlet Witch: 75.5
+Reasoning: The score is calculated using the provided formula with Scarlet Witch's stats: (85 * 0.3) + (70 * 0.25) + (75 * 0.2) + (90 * 0.15) + (40 * 0.1).
+
+Vision: 88.5
+Reasoning: The score is calculated using the provided formula with Vision's stats: (90 * 0.3) + (85 * 0.25) + (80 * 0.2) + (95 * 0.15) + (100 * 0.1).
+
+Doctor Strange: 79.5
+Reasoning: The score is calculated using the provided formula with Doctor Strange's stats: (85 * 0.3) + (80 * 0.25) + (70 * 0.2) + (100 * 0.15) + (50 * 0.1).
+
+Spiderman: 82.0
+Reasoning: The score is calculated using the provided formula with Spiderman's stats: (80 * 0.3) + (70 * 0.25) + (90 * 0.2) + (90 * 0.15) + (90 * 0.1)."

@@ -1,0 +1,8 @@
+model,file_format,task_type,latency_seconds,size_in_bytes,prompt_tokens,completion_tokens,total_tokens,response
+gemini-2.0-flash,JSON,FIND_SUITABLE_AVENGER_FOR_TASK,1.2230439186096191,148,1394,34,1428,"Chosen Avenger: Ant Man
+Reason: Ant Man's size manipulation power and high speed (90) make him ideal for infiltrating a secure building undetected.
+"
+gemini-2.5-flash,JSON,FIND_SUITABLE_AVENGER_FOR_TASK,11.469413757324219,324,1402,75,3503,"Chosen Avenger: Ant Man
+Reason: Ant Man's ""size manipulation"" power is uniquely suited for ""breaking into a very secure building"" by allowing him to shrink and bypass physical security measures. As a ""scientist"" with high intelligence (85) and tech (80) stats, he is also well-equipped to ""steal important data"" once inside."
+gemini-2.5-pro,JSON,FIND_SUITABLE_AVENGER_FOR_TASK,17.596639156341553,362,1402,79,3285,"Chosen Avenger: Ant Man
+Reason: His power is ""Size manipulation"" and the description specifies he ""can shrink to the size of an ant,"" which is the most suitable ability for infiltrating a secure building without being detected. Furthermore, his high `tech` (80) and `intelligence` (85) stats indicate he is capable of handling the data theft portion of the task."

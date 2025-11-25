@@ -1,0 +1,216 @@
+model,file_format,task_type,latency_seconds,size_in_bytes,prompt_tokens,completion_tokens,total_tokens,response
+gpt-4o,TOON,calculate_composite_score,11.671548843383789,3144,1032,1223,2255,"Based on the provided data, we will calculate the composite score for each Avenger using the formula:
+
+\[ \text{score} = \text{attack} \times 0.3 + \text{defense} \times 0.25 + \text{speed} \times 0.2 + \text{intelligence} \times 0.15 + \text{tech} \times 0.1 \]
+
+Let's calculate the composite scores:
+
+1. **Iron Man**:
+   - Score: \( 80 \times 0.3 + 90 \times 0.25 + 75 \times 0.2 + 100 \times 0.15 + 100 \times 0.1 = 24 + 22.5 + 15 + 15 + 10 = 86.5 \)
+   - Reasoning: Iron Man's high scores in tech and intelligence contribute significantly to his high composite score.
+
+2. **Captain America**:
+   - Score: \( 90 \times 0.3 + 95 \times 0.25 + 80 \times 0.2 + 70 \times 0.15 + 60 \times 0.1 = 27 + 23.75 + 16 + 10.5 + 6 = 83.25 \)
+   - Reasoning: Captain America benefits from high attack and defense, but lower tech reduces the total composite score.
+
+3. **Thor**:
+   - Score: \( 95 \times 0.3 + 85 \times 0.25 + 70 \times 0.2 + 60 \times 0.15 + 25 \times 0.1 = 28.5 + 21.25 + 14 + 9 + 2.5 = 75.25 \)
+   - Reasoning: High attack and defense benefit Thor, but lower intelligence and tech scores reduce the total score.
+
+4. **Hulk**:
+   - Score: \( 100 \times 0.3 + 80 \times 0.25 + 60 \times 0.2 + 50 \times 0.15 + 30 \times 0.1 = 30 + 20 + 12 + 7.5 + 3 = 72.5 \)
+   - Reasoning: Hulk's high attack is offset by relatively low intelligence and tech scores.
+
+5. **Black Widow**:
+   - Score: \( 75 \times 0.3 + 70 \times 0.25 + 85 \times 0.2 + 80 \times 0.15 + 65 \times 0.1 = 22.5 + 17.5 + 17 + 12 + 6.5 = 75.5 \)
+   - Reasoning: Moderately high across most stats, resulting in a balanced composite score.
+
+6. **Ant Man**:
+   - Score: \( 70 \times 0.3 + 65 \times 0.25 + 90 \times 0.2 + 85 \times 0.15 + 80 \times 0.1 = 21 + 16.25 + 18 + 12.75 + 8 = 76 \)
+   - Reasoning: High speed, intelligence, and tech contribute positively, slightly offset by lower attack and defense.
+
+7. **Hawkeye**:
+   - Score: \( 80 \times 0.3 + 60 \times 0.25 + 85 \times 0.2 + 75 \times 0.15 + 50 \times 0.1 = 24 + 15 + 17 + 11.25 + 5 = 72.25 \)
+   - Reasoning: Good attack and speed boost the score, but lower defense and tech impact the overall score.
+
+8. **Scarlet Witch**:
+   - Score: \( 85 \times 0.3 + 70 \times 0.25 + 75 \times 0.2 + 90 \times 0.15 + 40 \times 0.1 = 25.5 + 17.5 + 15 + 13.5 + 4 = 75.5 \)
+   - Reasoning: High attack and intelligence offset by lower tech.
+
+9. **Vision**:
+   - Score: \( 90 \times 0.3 + 85 \times 0.25 + 80 \times 0.2 + 95 \times 0.15 + 100 \times 0.1 = 27 + 21.25 + 16 + 14.25 + 10 = 88.5 \)
+   - Reasoning: High across all stats, most notably tech and intelligence, resulting in a high composite score.
+
+10. **Doctor Strange**:
+    - Score: \( 85 \times 0.3 + 80 \times 0.25 + 70 \times 0.2 + 100 \times 0.15 + 50 \times 0.1 = 25.5 + 20 + 14 + 15 + 5 = 79.5 \)
+    - Reasoning: High scores in intelligence, defense, and attack contribute well-roundedly to the score.
+
+11. **Spiderman**:
+    - Score: \( 80 \times 0.3 + 70 \times 0.25 + 90 \times 0.2 + 90 \times 0.15 + 90 \times 0.1 = 24 + 17.5 + 18 + 13.5 + 9 = 82 \)
+    - Reasoning: High speed, intelligence, and tech provide a balanced composite score across attributes."
+gpt-4,TOON,calculate_composite_score,24.108338117599487,2158,1029,917,1946,"Iron Man: 88.25
+Reasoning: His composite score is calculated using the provided formula and his stats (attack: 80, defense: 90, speed: 75, intelligence: 100, tech: 100) -> (80*0.3)+(90*0.25)+(75*0.2)+(100*0.15)+(100*0.1) = 88.25
+
+Captain America: 83.5
+Reasoning: Using the captain's stats for the formula (attack: 90, defense: 95, speed: 80, intelligence: 70, tech: 60) -> (90*0.3)+(95*0.25)+(80*0.2)+(70*0.15)+(60*0.1) = 83.5
+
+Thor: 76.75
+Reasoning: To calculate Thor's composite score we use his stats (attack: 95, defense: 85, speed: 70, intelligence: 60, tech: 25) -> (95*0.3)+(85*0.25)+(70*0.2)+(60*0.15)+(25*0.1) = 76.75
+
+Hulk: 72.5
+Reasoning: Hulk's score was calculated (attack: 100, defense: 80, speed: 60, intelligence: 50, tech: 30) -> (100*0.3)+(80*0.25)+(60*0.2)+(50*0.15)+(30*0.1) = 72.5
+
+Black Widow: 76.25
+Reasoning: Black Widow's score uses her stats (attack: 75, defense: 70, speed: 85, intelligence: 80, tech: 65) -> (75*0.3)+(70*0.25)+(85*0.2)+(80*0.15)+(65*0.1) = 76.25
+
+Ant Man: 78.25
+Reasoning: His composite score is determined from his stats (attack: 70, defense: 65, speed: 90, intelligence: 85, tech: 80) -> (70*0.3)+(65*0.25)+(90*0.2)+(85*0.15)+(80*0.1) = 78.25
+
+Hawkeye: 73.5
+Reasoning: Hawkeye's score is calculated from his stats (attack: 80, defense: 60, speed: 85, intelligence: 75, tech: 50) -> (80*0.3)+(60*0.25)+(85*0.2)+(75*0.15)+(50*0.1) = 73.5  
+
+Scarlet Witch: 79.5
+Reasoning: For Scarlet Witch, we use her stats (attack: 85, defense: 70, speed: 75, intelligence: 90, tech: 40) -> (85*0.3)+(70*0.25)+(75*0.2)+(90*0.15)+(40*0.1) = 79.5
+
+Vision: 90.75
+Reasoning: Vision's score is calculated from his stats (attack: 90, defense: 85, speed: 80, intelligence: 95, tech: 100) -> (90*0.3)+(85*0.25)+(80*0.2)+(95*0.15)+(100*0.1) = 90.75
+
+Doctor Strange: 81.5
+Reasoning: Doctor Strange's score is determined using his stats (attack: 85, defense: 80, speed: 70, intelligence: 100, tech: 50) -> (85*0.3)+(80*0.25)+(70*0.2)+(100*0.15)+(50*0.1) = 81.5
+
+Spiderman: 85.5
+Reasoning: For Spiderman, use his stats (attack: 80, defense: 70, speed: 90, intelligence: 90, tech: 90) -> (80*0.3)+(70*0.25)+(90*0.2)+(90*0.15)+(90*0.1) = 85.5"
+gpt-5.1,TOON,calculate_composite_score,24.931455850601196,3562,1031,1799,2830,"Iron Man: 88.25  
+Reasoning: (80×0.3) + (90×0.25) + (75×0.2) + (100×0.15) + (100×0.1)  
+= 24 + 22.5 + 15 + 15 + 10.75 = 88.25
+
+Captain America: 82.25  
+Reasoning: (90×0.3) + (95×0.25) + (80×0.2) + (70×0.15) + (60×0.1)  
+= 27 + 23.75 + 16 + 10.5 + 5 = 82.25
+
+Thor: 73.0  
+Reasoning: (95×0.3) + (85×0.25) + (70×0.2) + (60×0.15) + (25×0.1)  
+= 28.5 + 21.25 + 14 + 9 + 2.25 = 75.0 → 75.0 (recheck properly)  
+
+Let me recompute carefully from the data:  
+attack: 95, defense: 85, speed: 70, intelligence: 60, tech: 25  
+
+(95×0.3) = 28.5  
+(85×0.25) = 21.25  
+(70×0.2) = 14  
+(60×0.15) = 9  
+(25×0.1) = 2.5  
+Total = 28.5 + 21.25 + 14 + 9 + 2.5 = 75.25  
+
+Thor: 75.25  
+Reasoning: Weighted sum of given stats as above.
+
+Hulk: 73.5  
+Reasoning: (100×0.3) + (80×0.25) + (60×0.2) + (50×0.15) + (30×0.1)  
+= 30 + 20 + 12 + 7.5 + 3 = 72.5  
+
+Recheck carefully:  
+attack: 100, defense: 80, speed: 60, intelligence: 50, tech: 30  
+
+(100×0.3) = 30  
+(80×0.25) = 20  
+(60×0.2) = 12  
+(50×0.15) = 7.5  
+(30×0.1) = 3  
+Total = 30 + 20 + 12 + 7.5 + 3 = 72.5  
+
+Hulk: 72.5  
+Reasoning: Weighted sum of given stats as above.
+
+Black Widow: 75.5  
+Reasoning: (75×0.3) + (70×0.25) + (85×0.2) + (80×0.15) + (65×0.1)  
+= 22.5 + 17.5 + 17 + 12 + 6.5 = 75.5
+
+Ant Man: 79.25  
+Reasoning: (70×0.3) + (65×0.25) + (90×0.2) + (85×0.15) + (80×0.1)  
+= 21 + 16.25 + 18 + 12.75 + 8 = 76  
+
+Recheck carefully from stats:  
+attack: 70, defense: 65, speed: 90, intelligence: 85, tech: 80  
+
+(70×0.3) = 21  
+(65×0.25) = 16.25  
+(90×0.2) = 18  
+(85×0.15) = 12.75  
+(80×0.1) = 8  
+Total = 21 + 16.25 + 18 + 12.75 + 8 = 76  
+
+Ant Man: 76.0  
+Reasoning: Weighted sum of given stats as above.
+
+Hawkeye: 72.25  
+Reasoning: (80×0.3) + (60×0.25) + (85×0.2) + (75×0.15) + (50×0.1)  
+= 24 + 15 + 17 + 11.25 + 5 = 72.25
+
+Scarlet Witch: 77.25  
+Reasoning: (85×0.3) + (70×0.25) + (75×0.2) + (90×0.15) + (40×0.1)  
+= 25.5 + 17.5 + 15 + 13.5 + 4 = 75.5  
+
+Recheck carefully from stats:  
+attack: 85, defense: 70, speed: 75, intelligence: 90, tech: 40  
+
+(85×0.3) = 25.5  
+(70×0.25) = 17.5  
+(75×0.2) = 15  
+(90×0.15) = 13.5  
+(40×0.1) = 4  
+Total = 25.5 + 17.5 + 15 + 13.5 + 4 = 75.5  
+
+Scarlet Witch: 75.5  
+Reasoning: Weighted sum of given stats as above.
+
+Vision: 91.5  
+Reasoning: (90×0.3) + (85×0.25) + (80×0.2) + (95×0.15) + (100×0.1)  
+= 27 + 21.25 + 16 + 14.25 + 10 = 88.5  
+
+Recheck carefully from stats:  
+attack: 90, defense: 85, speed: 80, intelligence: 95, tech: 100  
+
+(90×0.3) = 27  
+(85×0.25) = 21.25  
+(80×0.2) = 16  
+(95×0.15) = 14.25  
+(100×0.1) = 10  
+Total = 27 + 21.25 + 16 + 14.25 + 10 = 88.5  
+
+Vision: 88.5  
+Reasoning: Weighted sum of given stats as above.
+
+Doctor Strange: 83.25  
+Reasoning: (85×0.3) + (80×0.25) + (70×0.2) + (100×0.15) + (50×0.1)  
+= 25.5 + 20 + 14 + 15 + 5 = 79.5  
+
+Recheck carefully from stats:  
+attack: 85, defense: 80, speed: 70, intelligence: 100, tech: 50  
+
+(85×0.3) = 25.5  
+(80×0.25) = 20  
+(70×0.2) = 14  
+(100×0.15) = 15  
+(50×0.1) = 5  
+Total = 25.5 + 20 + 14 + 15 + 5 = 79.5  
+
+Doctor Strange: 79.5  
+Reasoning: Weighted sum of given stats as above.
+
+Spiderman: 86.0  
+Reasoning: (80×0.3) + (70×0.25) + (90×0.2) + (90×0.15) + (90×0.1)  
+= 24 + 17.5 + 18 + 13.5 + 9 = 82  
+
+Recheck carefully from stats:  
+attack: 80, defense: 70, speed: 90, intelligence: 90, tech: 90  
+
+(80×0.3) = 24  
+(70×0.25) = 17.5  
+(90×0.2) = 18  
+(90×0.15) = 13.5  
+(90×0.1) = 9  
+Total = 24 + 17.5 + 18 + 13.5 + 9 = 82  
+
+Spiderman: 82.0  
+Reasoning: Weighted sum of given stats as above."

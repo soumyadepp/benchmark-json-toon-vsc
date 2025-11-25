@@ -7,6 +7,7 @@ import logging
 
 from typing import List
 from openai import OpenAI
+from openai.types.chat import ChatCompletion
 
 from .base import BenchmarkingToolBase, BenchMarkingResultBase
 from .prompt_builder import PromptBuilder
@@ -44,7 +45,60 @@ class OpenAIBenchmarkingTool(BenchmarkingToolBase):
         self.client = OpenAI()
         self.results: OpenAIBenchmarkingResults = OpenAIBenchmarkingResults(results=[])
 
-    def run_benchmarking_on_models(self, task_type: TaskTypes, **kwargs) -> None:
+    def call_llm_and_format_response(
+        self, model: str, prompt: str, task_type: TaskTypes, file_format: FileFormats
+    ) -> OpenAIBenchmarkResult | None:
+        """Calls the respective OpenAI model and returns the benchmarking response.
+
+        Args:
+            model (str): The name of the model to call.
+            prompt (str): The prompt to use for the model.
+            task_type (TaskTypes): The type of task to perform.
+            file_format (FileFormats): The file format to use.
+
+        Returns:
+            OpenAIBenchmarkResult | None: The benchmarking response.
+        """
+
+        try:
+            start_time = time.time()
+            response = self.client.chat.completions.create(
+                model=model,
+                messages=[
+                    {
+                        "role": "user",
+                        "content": prompt,
+                    },
+                ],
+            )
+
+            if (
+                not response
+                or not response.usage
+                or not response.choices
+                or not response.choices[0].message.content
+            ):
+                return None
+
+            return {
+                "model": model,
+                "file_format": file_format.name,
+                "task_type": task_type,
+                "latency_seconds": calculate_latency(start_time),
+                "size_in_bytes": len(
+                    response.choices[0].message.content.encode("utf-8")
+                ),
+                "prompt_tokens": response.usage.prompt_tokens,
+                "completion_tokens": response.usage.completion_tokens,
+                "total_tokens": response.usage.total_tokens,
+                "response": response.choices[0].message.content,
+            }
+        except Exception as e:
+            logger.error(f"Error calling OpenAI model: {e}")
+
+    def run_benchmarking_on_models(
+        self, task_type: TaskTypes, file_format: FileFormats, **kwargs
+    ) -> None:
         """Run benchmarking on the models
 
         Args:
@@ -53,39 +107,24 @@ class OpenAIBenchmarkingTool(BenchmarkingToolBase):
         """
         bm_results: List[OpenAIBenchmarkResult] = []
 
-        for file_format in FileFormats:
-            logger.info(f"Prompting with file format: {file_format.name}")
-            prompt = PromptBuilder(file_format=file_format).build_prompt(
-                task_type=task_type, **kwargs
+        logger.info(f"Prompting with file format: {file_format.name}")
+        prompt = PromptBuilder(file_format=file_format).build_prompt(
+            task_type=task_type, **kwargs
+        )
+
+        for model in self.MODELS_TO_ANALYZE:
+            logger.info(f"Using model: {model}")
+            result = self.call_llm_and_format_response(
+                model=model,
+                prompt=prompt,
+                task_type=task_type,
+                file_format=file_format,
             )
+            if not result:
+                continue
 
-            for model in self.MODELS_TO_ANALYZE:
-                logger.info(f"Using model: {model}")
-                start_time = time.time()
-
-                response = self.client.chat.completions.create(
-                    model=model,
-                    messages=[{"role": "user", "content": prompt}],
-                )
-
-                usage = response.usage
-                response_content = response.choices[0].message.content
-
-                if usage is None or response_content is None:
-                    continue
-
-                result: OpenAIBenchmarkResult = {
-                    "model": model,
-                    "file_format": file_format.name,
-                    "task_type": task_type,
-                    "latency_seconds": calculate_latency(start_time),
-                    "size_in_bytes": len(response_content.encode("utf-8")),
-                    "prompt_tokens": usage.prompt_tokens or 0,
-                    "completion_tokens": usage.completion_tokens or 0,
-                    "total_tokens": usage.total_tokens or 0,
-                    "response": response_content,
-                }
-                bm_results.append(result)
+            result = OpenAIBenchmarkResult(**result)
+            bm_results.append(result)
 
         self.results = OpenAIBenchmarkingResults(results=bm_results)
 

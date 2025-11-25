@@ -1,0 +1,17 @@
+model,file_format,task_type,latency_seconds,size_in_bytes,prompt_tokens,completion_tokens,total_tokens,response
+gemini-2.0-flash,VSC,FIND_TOP_3_HIGHEST_STAT,1.6028881072998047,205,661,54,715,"Ranked avengers:
+Iron Man
+Vision
+Captain America
+Reason: Iron Man has the highest intelligence stat at 100. Vision and Captain America are tied at 90, but Captain America is faster (95 speed vs 85 speed).
+"
+gemini-2.5-flash,VSC,FIND_TOP_3_HIGHEST_STAT,4.477324962615967,268,672,67,1548,"Ranked avengers:
+Iron Man
+Doctor Strange
+Vision
+Reason: Iron Man and Doctor Strange both have the highest intelligence score of 100. Iron Man ranks higher due to his superior speed of 90 compared to Doctor Strange's 80. Vision follows with an intelligence score of 95."
+gemini-2.5-pro,VSC,FIND_TOP_3_HIGHEST_STAT,15.549391269683838,400,672,97,2635,"Ranked avengers:
+Iron Man
+Doctor Strange
+Vision
+Reason: The ranking is based on the fourth numeric value provided for each avenger, representing intelligence. Iron Man and Doctor Strange are tied for first with a score of 100. The tie is broken by the second numeric value, speed, where Iron Man's 90 is higher than Doctor Strange's 80. Vision is third with the next highest intelligence score of 95."

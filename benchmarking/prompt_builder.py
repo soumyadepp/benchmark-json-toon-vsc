@@ -48,19 +48,19 @@ class PromptBuilder:
             self.raw_text, avenger_1_name, avenger_2_name
         )
 
-    def __build_prompt_for_avenger_overall_attributes(self, avenger_name: str) -> str:
-        from prompts.avenger_overall_attr import (
-            build_avenger_overall_attr_prompt,
+    def __build_prompt_for_rank_top_3_highest_stat(self, stat_name: str) -> str:
+        from prompts.find_top_3_highest_stat import (
+            build_find_top_3_highest_stat_prompt,
         )
 
-        return build_avenger_overall_attr_prompt(self.raw_text, avenger_name)
+        return build_find_top_3_highest_stat_prompt(self.raw_text, stat_name)
 
-    def __build_prompt_for_avenger_with_highest_stat(self, stat_name: str) -> str:
-        from prompts.choose_avenger_with_highest_stats import (
-            build_choose_avenger_with_highest_stat_prompt,
+    def __build_prompt_for_composite_score(self) -> str:
+        from prompts.calculate_composite_score import (
+            build_calculate_composite_score_prompt,
         )
 
-        return build_choose_avenger_with_highest_stat_prompt(self.raw_text, stat_name)
+        return build_calculate_composite_score_prompt(self.raw_text)
 
     def build_prompt(self, task_type: TaskTypes, **kwargs) -> str:
         """Build a prompt based on the task type and file format.
@@ -105,15 +105,15 @@ class PromptBuilder:
                     avenger_1_name, avenger_2_name
                 )
 
-            case TaskTypes.AVENGER_OVERALL_ATTRIBUTES:
+            case TaskTypes.CALCULATE_COMPOSITE_SCORE:
                 avenger_name = kwargs.get(
                     "avenger_name", self.DEFAULT_AVENGER_NAME_FOR_ATTRIBUTES
                 )
-                return self.__build_prompt_for_avenger_overall_attributes(avenger_name)
+                return self.__build_prompt_for_composite_score()
 
-            case TaskTypes.CHOOSE_AVENGER_WITH_HIGHEST_STAT:
+            case TaskTypes.FIND_TOP_3_HIGHEST_STAT:
                 stat = kwargs.get("stat", self.DEFAULT_STAT)
-                return self.__build_prompt_for_avenger_with_highest_stat(stat_name=stat)
+                return self.__build_prompt_for_rank_top_3_highest_stat(stat_name=stat)
 
             case _:
                 raise ValueError(f"Unsupported task type: {task_type}")
