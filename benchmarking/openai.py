@@ -7,11 +7,11 @@ import logging
 
 from typing import List
 from openai import OpenAI
-from openai.types.chat import ChatCompletion
 
 from .base import BenchmarkingToolBase, BenchMarkingResultBase
+from .constants import COSTING_MAP
 from .prompt_builder import PromptBuilder
-from .utils import calculate_latency
+from .utils import calculate_latency, calculate_cost
 from tasks import TaskTypes, FileFormats
 
 logger = logging.getLogger(__name__)
@@ -92,6 +92,12 @@ class OpenAIBenchmarkingTool(BenchmarkingToolBase):
                 "completion_tokens": response.usage.completion_tokens,
                 "total_tokens": response.usage.total_tokens,
                 "response": response.choices[0].message.content,
+                "cost_in_usd": calculate_cost(
+                    input_token_cost=COSTING_MAP[model]["input_token"],
+                    output_token_cost=COSTING_MAP[model]["output_token"],
+                    input_tokens=response.usage.prompt_tokens,
+                    output_tokens=response.usage.completion_tokens,
+                ),
             }
         except Exception as e:
             logger.error(f"Error calling OpenAI model: {e}")

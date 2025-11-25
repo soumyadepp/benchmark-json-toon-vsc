@@ -9,9 +9,10 @@ from google.generativeai.client import configure
 
 from tasks import FileFormats
 from tasks import TaskTypes
+from .constants import COSTING_MAP
 from .prompt_builder import PromptBuilder
 from .base import BenchmarkingToolBase, BenchMarkingResultBase
-from .utils import calculate_latency
+from .utils import calculate_latency, calculate_cost
 
 logger = logging.getLogger(__name__)
 
@@ -82,6 +83,12 @@ class GeminiBenchmarkingTool(BenchmarkingToolBase):
                 "completion_tokens": response.usage_metadata.candidates_token_count,
                 "total_tokens": response.usage_metadata.total_token_count,
                 "response": response.text,
+                "cost_in_usd": calculate_cost(
+                    input_token_cost=COSTING_MAP[model]["input_token"],
+                    output_token_cost=COSTING_MAP[model]["output_token"],
+                    input_tokens=response.usage_metadata.prompt_token_count,
+                    output_tokens=response.usage_metadata.candidates_token_count,
+                ),
             }
         except Exception as e:
             logger.error(f"Error calling Gemini model {model}: {e}")

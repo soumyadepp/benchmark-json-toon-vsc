@@ -66,5 +66,5 @@ def run_benchmarking_on_tasks(tool: BenchmarkingToolBase) -> None:
 
 
 if __name__ == "__main__":
-    # run_benchmarking_on_tasks(tool=OpenAIBenchmarkingTool())
+    run_benchmarking_on_tasks(tool=OpenAIBenchmarkingTool())
     run_benchmarking_on_tasks(tool=GeminiBenchmarkingTool())
