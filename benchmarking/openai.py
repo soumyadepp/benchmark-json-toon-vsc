@@ -118,21 +118,22 @@ class OpenAIBenchmarkingTool(BenchmarkingToolBase):
             task_type=task_type, **kwargs
         )
 
-        for model in self.MODELS_TO_ANALYZE:
-            logger.info(f"Using model: {model}")
-            result = self.call_llm_and_format_response(
-                model=model,
-                prompt=prompt,
-                task_type=task_type,
-                file_format=file_format,
-            )
-            if not result:
-                continue
+        try:
+            for model in self.MODELS_TO_ANALYZE:
+                logger.info(f"Using model: {model}")
+                result = self.call_llm_and_format_response(
+                    model=model,
+                    prompt=prompt,
+                    task_type=task_type,
+                    file_format=file_format,
+                )
+                if not result:
+                    continue
 
-            result = OpenAIBenchmarkResult(**result)
-            bm_results.append(result)
-
-        self.results = OpenAIBenchmarkingResults(results=bm_results)
+                bm_results.append(result)
+        except Exception as e:
+            logger.error("Error running benchmark %s", e)
+            return
 
     def export_results_to_csv(self, file_path: str) -> None:
         """Export the benchmarking results DataFrame to a CSV file."""
