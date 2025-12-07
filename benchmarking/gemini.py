@@ -11,14 +11,18 @@ from tasks import FileFormats
 from tasks import TaskTypes
 from .constants import COSTING_MAP
 from .prompt_builder import PromptBuilder
-from .base import BenchmarkingToolBase, BenchMarkingResultBase
+from .base import (
+    BenchmarkingToolBase,
+    BenchmarkingResultBase,
+    BenchmarkingToolResultExporter,
+)
 from .utils import calculate_latency, calculate_cost
 
 logger = logging.getLogger(__name__)
 
 
 @dataclasses.dataclass
-class GeminiBenchmarkResult(BenchMarkingResultBase):
+class GeminiBenchmarkResult(BenchmarkingResultBase):
     pass
 
 
@@ -35,7 +39,6 @@ class GeminiBenchmarkingTool(BenchmarkingToolBase):
     MODELS_TO_ANALYZE: list[str] = [
         "gemini-2.0-flash",
         "gemini-2.5-flash",
-        "gemini-2.5-pro",
     ]
 
     DIR_TO_SAVE_RESULTS: str = "reports/gemini/"
@@ -70,7 +73,7 @@ class GeminiBenchmarkingTool(BenchmarkingToolBase):
             genai_model = GenerativeModel(model_name=model)
             response = genai_model.generate_content(
                 prompt,
-                generation_config={"temperature": 0.2},
+                generation_config={"temperature": 0},
                 safety_settings=None,
             )
             return {
@@ -95,7 +98,7 @@ class GeminiBenchmarkingTool(BenchmarkingToolBase):
 
     def run_benchmarking_on_models(
         self, task_type: TaskTypes, file_format: FileFormats, **kwargs
-    ) -> None:
+    ) -> list[GeminiBenchmarkResult]:
         """Run benchmarking on the MODELS_TO_ANALYZE.
 
         Args:
@@ -114,7 +117,7 @@ class GeminiBenchmarkingTool(BenchmarkingToolBase):
             )
         except ValueError as e:
             logger.error("Unable to build prompt: %s", e)
-            return
+            return []
 
         try:
             for model in self.MODELS_TO_ANALYZE:
@@ -125,32 +128,40 @@ class GeminiBenchmarkingTool(BenchmarkingToolBase):
                     task_type=task_type,
                     file_format=file_format,
                 )
-                if result is None:
+                if not result:
                     continue
+
                 bm_results.append(result)
+
+            return bm_results
         except Exception as e:
             logger.error("Error running benchmarking: %s", e)
-            return
+            return []
 
-        self.results = GeminiBenchmarkingResults(results=bm_results)
 
-    def export_results_to_csv(self, file_path: str) -> None:
-        """Exports the generated results to a CSV file.
+class GeminiBenchmarkingReportExporter(BenchmarkingToolResultExporter):
+    def __init__(self) -> None:
+        self.DIR_TO_SAVE_RESULTS = "reports/gemini"
+
+    def export_to_csv(
+        self, results: list[GeminiBenchmarkResult], filename: str
+    ) -> None:
+        """Exports the generated results for gemini models to a CSV file.
 
         Args:
-            file_path (str): The name of the file where the results are to be exported
+            results (list[GeminiBenchmarkResult]): The list of rows to be exported.
+            filename (str): The name of the file where the results are to be exported.
         """
-        benchmarking_results = self.results.results
 
-        if not benchmarking_results:
+        if not results:
             logger.warning("No results to export.")
             return
 
-        keys = benchmarking_results[0].keys()
-        file_path = os.path.join(self.DIR_TO_SAVE_RESULTS, file_path)
+        keys = results[0].keys()
+        file_path = os.path.join(self.DIR_TO_SAVE_RESULTS, filename)
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         with open(file_path, "w", newline="", encoding="utf-8") as f:
             dict_writer = csv.DictWriter(f, keys)
             dict_writer.writeheader()
-            dict_writer.writerows(benchmarking_results)
+            dict_writer.writerows(results)
             logger.info(f"Results exported to {file_path}")

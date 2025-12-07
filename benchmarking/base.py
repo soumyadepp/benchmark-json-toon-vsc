@@ -5,7 +5,7 @@ from tasks import FileFormats, TaskTypes
 
 
 @dataclasses.dataclass
-class BenchMarkingResultBase(TypedDict):
+class BenchmarkingResultBase(TypedDict):
     """A base class for benchmarking results.
 
     1. model: The name of the model used for benchmarking.
@@ -38,14 +38,14 @@ class BenchmarkingToolBase(abc.ABC):
     @abc.abstractmethod
     def call_llm_and_format_response(
         self, model: str, prompt: str, task_type: TaskTypes, file_format: FileFormats
-    ) -> BenchMarkingResultBase | None:
+    ) -> BenchmarkingResultBase | None:
         """Calls the respective LLM model with the prompt and returns the response metadata"""
         pass
 
     @abc.abstractmethod
     def run_benchmarking_on_models(
         self, task_type: TaskTypes, file_format: FileFormats, **kwargs
-    ) -> None:
+    ) -> list[BenchmarkingResultBase]:
         """Run benchmarking on a list of models for a given task.
 
         Args:
@@ -55,11 +55,18 @@ class BenchmarkingToolBase(abc.ABC):
         """
         pass
 
+
+class BenchmarkingToolResultExporter(abc.ABC):
+    """Base class for exporting benchmarking results for a model"""
+
     @abc.abstractmethod
-    def export_results_to_csv(self, file_path: str) -> None:
-        """Export the benchmarking results to a CSV file.
+    def export_to_csv(
+        self, results: list[BenchmarkingResultBase], filename: str
+    ) -> None:
+        """Export the benchmarking results to a CSV file
 
         Args:
-            file_path: The path to the CSV file to export the results to.
+            results: The list of results to export to CSV
+            filename: The name of the file to export to.
         """
         pass

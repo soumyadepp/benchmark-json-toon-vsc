@@ -1,8 +1,0 @@
-model,file_format,task_type,latency_seconds,size_in_bytes,prompt_tokens,completion_tokens,total_tokens,response
-gemini-2.0-flash,TOON,CAN_AVENGER_DEFEAT_AVENGER,1.2886888980865479,137,1079,39,1118,"Can Defeat: Yes
-Reason: Thor's attack stat (95) is higher than Spiderman's defense stat (70). Thor also has the power of God of Thunder.
-"
-gemini-2.5-flash,TOON,CAN_AVENGER_DEFEAT_AVENGER,5.872626781463623,513,1087,131,2048,"Can Defeat: Yes
-Reason: Thor possesses significantly higher attack (95 vs 80) and defense (85 vs 70) stats compared to Spiderman. His power is described as ""God of Thunder"" and he wields Mjolnir, indicating a higher tier of raw power. While Spiderman has superior speed (90 vs 70), intelligence (90 vs 60), and tech (90 vs 25), Thor's overwhelming offensive and defensive capabilities, combined with his inherent power, suggest he has the capacity to defeat Spiderman despite Spiderman's agility and spider-sense."
-gemini-2.5-pro,TOON,CAN_AVENGER_DEFEAT_AVENGER,7.268757104873657,312,1087,81,1872,"Can Defeat: Yes
-Reason: Based on the provided data, Thor has a significantly higher attack stat (95 vs. 80) and defense stat (85 vs. 70) compared to Spiderman. Although Spiderman has a higher speed stat (90 vs. 70), Thor's superior attack and defense capabilities indicate he would win in a direct confrontation."

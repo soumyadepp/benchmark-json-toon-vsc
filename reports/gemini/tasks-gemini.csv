@@ -1,0 +1,274 @@
+model,file_format,task_type,latency_seconds,size_in_bytes,prompt_tokens,completion_tokens,total_tokens,response,cost_in_usd
+gemini-2.0-flash,JSON,CALCULATE_COMPOSITE_SCORE,5.475466966629028,1117,1434,786,2220,"Iron Man: 87.25
+Reasoning: (80 * 0.3) + (90 * 0.25) + (75 * 0.2) + (100 * 0.15) + (100 * 0.1) = 87.25
+
+Captain America: 82.75
+Reasoning: (90 * 0.3) + (95 * 0.25) + (80 * 0.2) + (70 * 0.15) + (60 * 0.1) = 82.75
+
+Thor: 76.5
+Reasoning: (95 * 0.3) + (85 * 0.25) + (70 * 0.2) + (60 * 0.15) + (25 * 0.1) = 76.5
+
+Hulk: 75.0
+Reasoning: (100 * 0.3) + (80 * 0.25) + (60 * 0.2) + (50 * 0.15) + (30 * 0.1) = 75.0
+
+Black Widow: 75.75
+Reasoning: (75 * 0.3) + (70 * 0.25) + (85 * 0.2) + (80 * 0.15) + (65 * 0.1) = 75.75
+
+Ant Man: 76.75
+Reasoning: (70 * 0.3) + (65 * 0.25) + (90 * 0.2) + (85 * 0.15) + (80 * 0.1) = 76.75
+
+Hawkeye: 73.25
+Reasoning: (80 * 0.3) + (60 * 0.25) + (85 * 0.2) + (75 * 0.15) + (50 * 0.1) = 73.25
+
+Scarlet Witch: 76.5
+Reasoning: (85 * 0.3) + (70 * 0.25) + (75 * 0.2) + (90 * 0.15) + (40 * 0.1) = 76.5
+
+Vision: 88.75
+Reasoning: (90 * 0.3) + (85 * 0.25) + (80 * 0.2) + (95 * 0.15) + (100 * 0.1) = 88.75
+
+Doctor Strange: 82.0
+Reasoning: (85 * 0.3) + (80 * 0.25) + (70 * 0.2) + (100 * 0.15) + (50 * 0.1) = 82.0
+
+Spiderman: 82.75
+Reasoning: (80 * 0.3) + (70 * 0.25) + (90 * 0.2) + (90 * 0.15) + (90 * 0.1) = 82.75
+",0.00049
+gemini-2.5-flash,JSON,CALCULATE_COMPOSITE_SCORE,10.545898914337158,1523,1442,765,3935,"Iron Man: 86.5
+Reasoning: Calculated using the formula: (80*0.3) + (90*0.25) + (75*0.2) + (100*0.15) + (100*0.1) based on provided stats.
+
+Captain America: 83.25
+Reasoning: Calculated using the formula: (90*0.3) + (95*0.25) + (80*0.2) + (70*0.15) + (60*0.1) based on provided stats.
+
+Thor: 75.25
+Reasoning: Calculated using the formula: (95*0.3) + (85*0.25) + (70*0.2) + (60*0.15) + (25*0.1) based on provided stats.
+
+Hulk: 72.5
+Reasoning: Calculated using the formula: (100*0.3) + (80*0.25) + (60*0.2) + (50*0.15) + (30*0.1) based on provided stats.
+
+Black Widow: 75.5
+Reasoning: Calculated using the formula: (75*0.3) + (70*0.25) + (85*0.2) + (80*0.15) + (65*0.1) based on provided stats.
+
+Ant Man: 76.0
+Reasoning: Calculated using the formula: (70*0.3) + (65*0.25) + (90*0.2) + (85*0.15) + (80*0.1) based on provided stats.
+
+Hawkeye: 72.25
+Reasoning: Calculated using the formula: (80*0.3) + (60*0.25) + (85*0.2) + (75*0.15) + (50*0.1) based on provided stats.
+
+Scarlet Witch: 75.5
+Reasoning: Calculated using the formula: (85*0.3) + (70*0.25) + (75*0.2) + (90*0.15) + (40*0.1) based on provided stats.
+
+Vision: 88.5
+Reasoning: Calculated using the formula: (90*0.3) + (85*0.25) + (80*0.2) + (95*0.15) + (100*0.1) based on provided stats.
+
+Doctor Strange: 79.5
+Reasoning: Calculated using the formula: (85*0.3) + (80*0.25) + (70*0.2) + (100*0.15) + (50*0.1) based on provided stats.
+
+Spiderman: 82.0
+Reasoning: Calculated using the formula: (80*0.3) + (70*0.25) + (90*0.2) + (90*0.15) + (90*0.1) based on provided stats.",0.00235
+gemini-2.0-flash,JSON,CAN_AVENGER_DEFEAT_AVENGER,1.4316658973693848,359,1396,72,1468,"Can Defeat: Unknown
+Reason: The data provides stats for attack, defense, speed, intelligence, and tech, but does not define how these stats translate into combat effectiveness. Thor has a higher attack and defense, while Spiderman has higher speed, intelligence, and tech. Without knowing how these stats interact, it's impossible to determine who would win.
+",6e-05
+gemini-2.5-flash,JSON,CAN_AVENGER_DEFEAT_AVENGER,4.094212055206299,460,1404,116,2078,"Can Defeat: Yes
+Reason: Thor possesses significantly higher attack (95 vs 80) and defense (85 vs 70) stats compared to Spiderman. His power as ""God of Thunder"" further indicates a higher level of destructive capability. While Spiderman has superior speed (90 vs 70), intelligence (90 vs 60), and tech (90 vs 25), and his spider-sense offers an advantage in awareness, Thor's raw power and durability are likely to overwhelm Spiderman in a direct confrontation.",0.00071
+gemini-2.0-flash,JSON,CAN_AVENGER_HANDLE_THREAT,1.3303868770599365,353,1422,81,1503,"Can Handle Threat: No
+Reason: Captain America's power is ""Enhanced strength and agility"". His stats show high attack (90) and defense (95), but his intelligence (70) and tech (60) are relatively low. The threat is a data center attack, which requires high intelligence and tech skills to counter, which Captain America lacks based on the data provided.
+",7e-05
+gemini-2.5-flash,JSON,CAN_AVENGER_HANDLE_THREAT,3.891605854034424,607,1429,127,1951,"Can Handle Threat: No
+Reason: Captain America's powers are ""Enhanced strength and agility,"" and his description highlights his role as a ""super-soldier"" who ""wields a vibranium shield."" His stats show high attack, defense, and speed, but his intelligence is 70 and tech is 60. The threat involves an attack on ""data centers"" and ""breaching global security,"" which is a highly technical and intelligence-based problem. Captain America's documented abilities and stats do not indicate any capacity for cybersecurity, data protection, or advanced technological countermeasures required to handle such a threat.",0.00075
+gemini-2.0-flash,JSON,FIND_TOP_3_HIGHEST_STAT,1.226289987564087,266,1369,70,1439,"Ranked avengers:
+Hulk
+Thor
+Captain America
+Reason: Hulk has the highest attack stat at 100. Thor is next with 95. Captain America and Vision both have 90 attack, but Captain America has a higher speed stat (80) than Vision (80), so Captain America is ranked higher.
+",6e-05
+gemini-2.5-flash,JSON,FIND_TOP_3_HIGHEST_STAT,11.265514850616455,425,1380,100,3856,"Ranked avengers:
+Hulk
+Thor
+Captain America
+Reason: Hulk has the highest attack stat (100). Thor has the second highest attack stat (95). Captain America and Vision are tied for the third highest attack stat (90) and are also tied on speed (80). As the provided tie-breaker (speed) did not resolve the tie for the third position, Captain America is listed as the third Avenger due to appearing earlier in the provided dataset.",0.00066
+gemini-2.0-flash,JSON,FIND_SUITABLE_AVENGER_FOR_TASK,1.0277981758117676,210,1392,38,1430,"Chosen Avenger: Doctor Strange
+Reason: Doctor Strange has mastery of the mystic arts and high intelligence, making him the most suitable choice for exploring multi-dimensional reality and learning mystic arts.
+",4e-05
+gemini-2.5-flash,JSON,FIND_SUITABLE_AVENGER_FOR_TASK,3.0208981037139893,281,1400,58,1848,"Chosen Avenger: Doctor Strange
+Reason: Doctor Strange's power is ""Mastery of the mystic arts"" and his description states he ""becomes the Sorcerer Supreme to protect the world,"" which directly aligns with the user's desire to learn mystic arts and explore multi-dimensional reality.",0.00056
+gemini-2.0-flash,TOON,CALCULATE_COMPOSITE_SCORE,5.42471981048584,1421,1117,1035,2152,"Iron Man: 88.25
+Reasoning: (80 * 0.3) + (90 * 0.25) + (75 * 0.2) + (100 * 0.15) + (100 * 0.1) = 24 + 22.5 + 15 + 15 + 10 = 86.5
+
+Captain America: 82.75
+Reasoning: (90 * 0.3) + (95 * 0.25) + (80 * 0.2) + (70 * 0.15) + (60 * 0.1) = 27 + 23.75 + 16 + 10.5 + 6 = 83.25
+
+Thor: 76.5
+Reasoning: (95 * 0.3) + (85 * 0.25) + (70 * 0.2) + (60 * 0.15) + (25 * 0.1) = 28.5 + 21.25 + 14 + 9 + 2.5 = 75.25
+
+Hulk: 74.5
+Reasoning: (100 * 0.3) + (80 * 0.25) + (60 * 0.2) + (50 * 0.15) + (30 * 0.1) = 30 + 20 + 12 + 7.5 + 3 = 72.5
+
+Black Widow: 75.75
+Reasoning: (75 * 0.3) + (70 * 0.25) + (85 * 0.2) + (80 * 0.15) + (65 * 0.1) = 22.5 + 17.5 + 17 + 12 + 6.5 = 75.5
+
+Ant Man: 78.75
+Reasoning: (70 * 0.3) + (65 * 0.25) + (90 * 0.2) + (85 * 0.15) + (80 * 0.1) = 21 + 16.25 + 18 + 12.75 + 8 = 76
+
+Hawkeye: 73.0
+Reasoning: (80 * 0.3) + (60 * 0.25) + (85 * 0.2) + (75 * 0.15) + (50 * 0.1) = 24 + 15 + 17 + 11.25 + 5 = 72.25
+
+Scarlet Witch: 75.25
+Reasoning: (85 * 0.3) + (70 * 0.25) + (75 * 0.2) + (90 * 0.15) + (40 * 0.1) = 25.5 + 17.5 + 15 + 13.5 + 4 = 75.5
+
+Vision: 88.75
+Reasoning: (90 * 0.3) + (85 * 0.25) + (80 * 0.2) + (95 * 0.15) + (100 * 0.1) = 27 + 21.25 + 16 + 14.25 + 10 = 88.5
+
+Doctor Strange: 82.0
+Reasoning: (85 * 0.3) + (80 * 0.25) + (70 * 0.2) + (100 * 0.15) + (50 * 0.1) = 25.5 + 20 + 14 + 15 + 5 = 79.5
+
+Spiderman: 81.5
+Reasoning: (80 * 0.3) + (70 * 0.25) + (90 * 0.2) + (90 * 0.15) + (90 * 0.1) = 24 + 17.5 + 18 + 13.5 + 9 = 82
+",0.00064
+gemini-2.5-flash,TOON,CALCULATE_COMPOSITE_SCORE,12.388179063796997,2325,1125,905,4239,"Iron Man: 86.5
+Reasoning: Calculated using the formula (attack*0.3 + defence*0.25 + speed*0.2 + intelligence*0.15 + tech*0.1) with Iron Man's stats: attack=80, defense=90, speed=75, intelligence=100, tech=100.
+
+Captain America: 83.25
+Reasoning: Calculated using the formula (attack*0.3 + defence*0.25 + speed*0.2 + intelligence*0.15 + tech*0.1) with Captain America's stats: attack=90, defense=95, speed=80, intelligence=70, tech=60.
+
+Thor: 75.25
+Reasoning: Calculated using the formula (attack*0.3 + defence*0.25 + speed*0.2 + intelligence*0.15 + tech*0.1) with Thor's stats: attack=95, defense=85, speed=70, intelligence=60, tech=25.
+
+Hulk: 72.5
+Reasoning: Calculated using the formula (attack*0.3 + defence*0.25 + speed*0.2 + intelligence*0.15 + tech*0.1) with Hulk's stats: attack=100, defense=80, speed=60, intelligence=50, tech=30.
+
+Black Widow: 75.5
+Reasoning: Calculated using the formula (attack*0.3 + defence*0.25 + speed*0.2 + intelligence*0.15 + tech*0.1) with Black Widow's stats: attack=75, defense=70, speed=85, intelligence=80, tech=65.
+
+Ant Man: 76.0
+Reasoning: Calculated using the formula (attack*0.3 + defence*0.25 + speed*0.2 + intelligence*0.15 + tech*0.1) with Ant Man's stats: attack=70, defense=65, speed=90, intelligence=85, tech=80.
+
+Hawkeye: 72.25
+Reasoning: Calculated using the formula (attack*0.3 + defence*0.25 + speed*0.2 + intelligence*0.15 + tech*0.1) with Hawkeye's stats: attack=80, defense=60, speed=85, intelligence=75, tech=50.
+
+Scarlet Witch: 75.5
+Reasoning: Calculated using the formula (attack*0.3 + defence*0.25 + speed*0.2 + intelligence*0.15 + tech*0.1) with Scarlet Witch's stats: attack=85, defense=70, speed=75, intelligence=90, tech=40.
+
+Vision: 88.5
+Reasoning: Calculated using the formula (attack*0.3 + defence*0.25 + speed*0.2 + intelligence*0.15 + tech*0.1) with Vision's stats: attack=90, defense=85, speed=80, intelligence=95, tech=100.
+
+Doctor Strange: 79.5
+Reasoning: Calculated using the formula (attack*0.3 + defence*0.25 + speed*0.2 + intelligence*0.15 + tech*0.1) with Doctor Strange's stats: attack=85, defense=80, speed=70, intelligence=100, tech=50.
+
+Spiderman: 82.0
+Reasoning: Calculated using the formula (attack*0.3 + defence*0.25 + speed*0.2 + intelligence*0.15 + tech*0.1) with Spiderman's stats: attack=80, defense=70, speed=90, intelligence=90, tech=90.",0.0026
+gemini-2.0-flash,TOON,CAN_AVENGER_DEFEAT_AVENGER,1.3315908908843994,137,1079,39,1118,"Can Defeat: Yes
+Reason: Thor's attack stat (95) is higher than Spiderman's defense stat (70). Thor also has the power of God of Thunder.
+",4e-05
+gemini-2.5-flash,TOON,CAN_AVENGER_DEFEAT_AVENGER,6.85815691947937,492,1087,117,2292,"Can Defeat: Yes
+Reason: Thor possesses significantly higher attack (95 vs 80) and defense (85 vs 70) stats compared to Spiderman. As the ""God of Thunder"" wielding the enchanted hammer Mjolnir, his power output is likely to overwhelm Spiderman's lower durability. While Spiderman has superior speed (90 vs 70) and his spider-sense provides an advantage in evasion, Thor's raw power and durability make it highly probable he could land a decisive blow that Spiderman's defense cannot withstand.",0.00062
+gemini-2.0-flash,TOON,CAN_AVENGER_HANDLE_THREAT,1.3317279815673828,326,1105,69,1174,"Can Handle Threat: No
+Reason: Captain America's powers are superhuman strength and agility. While he has high attack and defense stats, the threat is a data center attack, which requires intelligence and tech skills. His intelligence and tech stats are 70 and 60 respectively, which are not high enough to handle this threat.
+",6e-05
+gemini-2.5-flash,TOON,CAN_AVENGER_HANDLE_THREAT,3.377140998840332,537,1112,112,1631,"Can Handle Threat: No
+Reason: Captain America's primary power is ""Superhuman strength and agility,"" and his description identifies him as a ""super-soldier."" His stats show a tech rating of 60 and an intelligence rating of 70. The threat involves an attack on ""data centers"" breaching ""global security,"" which is a highly technical and intelligence-based challenge. Based on the provided data, Captain America's physical combat abilities and relatively lower tech/intelligence stats do not equip him to handle a global data center breach.",0.00061
+gemini-2.0-flash,TOON,FIND_TOP_3_HIGHEST_STAT,1.1252162456512451,155,1052,42,1094,"Ranked avengers:
+Hulk
+Thor
+Captain America
+Reason: Hulk has the highest attack stat at 100. Thor and Captain America are next with 95 and 90 respectively.
+",4e-05
+gemini-2.5-flash,TOON,FIND_TOP_3_HIGHEST_STAT,13.210050106048584,358,1063,92,3928,"Ranked avengers:
+Hulk
+Thor
+Captain America
+Reason: Hulk has the highest attack stat at 100. Thor is second with an attack stat of 95. Captain America and Vision are tied for the third highest attack stat at 90. As per the tie-breaker rule, their speed stats are also tied at 80. Therefore, Captain America is listed as one of the tied third-place contenders.",0.00055
+gemini-2.0-flash,TOON,FIND_SUITABLE_AVENGER_FOR_TASK,1.2266371250152588,241,1075,47,1122,"Chosen Avenger: Doctor Strange
+Reason: Doctor Strange has mastery of the mystic arts, which aligns with the user's desire to learn them, and his description states he protects the world, implying experience with multi-dimensional realities.
+",4e-05
+gemini-2.5-flash,TOON,FIND_SUITABLE_AVENGER_FOR_TASK,3.9912960529327393,239,1083,51,1563,"Chosen Avenger: Doctor Strange
+Reason: Doctor Strange's power is ""Mastery of the mystic arts"" and his description states he ""becomes the Sorcerer Supreme to protect the world,"" directly aligning with the user's desire to learn mystic arts.",0.00045
+gemini-2.0-flash,VSC,CALCULATE_COMPOSITE_SCORE,4.428965091705322,1111,726,780,1506,"Iron Man: 86.75
+Reasoning: (80 * 0.3) + (90 * 0.25) + (75 * 0.2) + (100 * 0.15) + (100 * 0.1) = 86.75
+
+Captain America: 83.25
+Reasoning: (90 * 0.3) + (95 * 0.25) + (80 * 0.2) + (70 * 0.15) + (60 * 0.1) = 83.25
+
+Thor: 78.5
+Reasoning: (95 * 0.3) + (85 * 0.25) + (70 * 0.2) + (60 * 0.15) + (25 * 0.1) = 78.5
+
+Hulk: 77.5
+Reasoning: (100 * 0.3) + (80 * 0.25) + (60 * 0.2) + (50 * 0.15) + (30 * 0.1) = 77.5
+
+Black Widow: 75.25
+Reasoning: (75 * 0.3) + (70 * 0.25) + (85 * 0.2) + (80 * 0.15) + (65 * 0.1) = 75.25
+
+Ant Man: 75.25
+Reasoning: (70 * 0.3) + (65 * 0.25) + (90 * 0.2) + (85 * 0.15) + (80 * 0.1) = 75.25
+
+Hawkeye: 72.25
+Reasoning: (80 * 0.3) + (60 * 0.25) + (85 * 0.2) + (75 * 0.15) + (50 * 0.1) = 72.25
+
+Scarlet Witch: 77.5
+Reasoning: (85 * 0.3) + (70 * 0.25) + (75 * 0.2) + (90 * 0.15) + (40 * 0.1) = 77.5
+
+Vision: 87.5
+Reasoning: (90 * 0.3) + (85 * 0.25) + (80 * 0.2) + (95 * 0.15) + (100 * 0.1) = 87.5
+
+Doctor Strange: 80
+Reasoning: (85 * 0.3) + (80 * 0.25) + (70 * 0.2) + (100 * 0.15) + (50 * 0.1) = 80
+
+Spiderman: 81.75
+Reasoning: (80 * 0.3) + (70 * 0.25) + (90 * 0.2) + (90 * 0.15) + (90 * 0.1) = 81.75
+",0.00048
+gemini-2.5-flash,VSC,CALCULATE_COMPOSITE_SCORE,14.778748989105225,3037,734,1606,4389,"Iron Man: 86.5
+Reasoning: The composite score is calculated using the formula: (attack*0.3) + (defence*0.25) + (speed*0.2) + (intelligence*0.15) + (tech*0.1). For Iron Man, this is (80*0.3) + (90*0.25) + (75*0.2) + (100*0.15) + (100*0.1) = 24 + 22.5 + 15 + 15 + 10 = 86.5.
+
+Captain America: 83.25
+Reasoning: The composite score is calculated using the formula: (attack*0.3) + (defence*0.25) + (speed*0.2) + (intelligence*0.15) + (tech*0.1). For Captain America, this is (90*0.3) + (95*0.25) + (80*0.2) + (70*0.15) + (60*0.1) = 27 + 23.75 + 16 + 10.5 + 6 = 83.25.
+
+Thor: 75.25
+Reasoning: The composite score is calculated using the formula: (attack*0.3) + (defence*0.25) + (speed*0.2) + (intelligence*0.15) + (tech*0.1). For Thor, this is (95*0.3) + (85*0.25) + (70*0.2) + (60*0.15) + (25*0.1) = 28.5 + 21.25 + 14 + 9 + 2.5 = 75.25.
+
+Hulk: 72.5
+Reasoning: The composite score is calculated using the formula: (attack*0.3) + (defence*0.25) + (speed*0.2) + (intelligence*0.15) + (tech*0.1). For Hulk, this is (100*0.3) + (80*0.25) + (60*0.2) + (50*0.15) + (30*0.1) = 30 + 20 + 12 + 7.5 + 3 = 72.5.
+
+Black Widow: 75.5
+Reasoning: The composite score is calculated using the formula: (attack*0.3) + (defence*0.25) + (speed*0.2) + (intelligence*0.15) + (tech*0.1). For Black Widow, this is (75*0.3) + (70*0.25) + (85*0.2) + (80*0.15) + (65*0.1) = 22.5 + 17.5 + 17 + 12 + 6.5 = 75.5.
+
+Ant Man: 76.0
+Reasoning: The composite score is calculated using the formula: (attack*0.3) + (defence*0.25) + (speed*0.2) + (intelligence*0.15) + (tech*0.1). For Ant Man, this is (70*0.3) + (65*0.25) + (90*0.2) + (85*0.15) + (80*0.1) = 21 + 16.25 + 18 + 12.75 + 8 = 76.0.
+
+Hawkeye: 72.25
+Reasoning: The composite score is calculated using the formula: (attack*0.3) + (defence*0.25) + (speed*0.2) + (intelligence*0.15) + (tech*0.1). For Hawkeye, this is (80*0.3) + (60*0.25) + (85*0.2) + (75*0.15) + (50*0.1) = 24 + 15 + 17 + 11.25 + 5 = 72.25.
+
+Scarlet Witch: 75.5
+Reasoning: The composite score is calculated using the formula: (attack*0.3) + (defence*0.25) + (speed*0.2) + (intelligence*0.15) + (tech*0.1). For Scarlet Witch, this is (85*0.3) + (70*0.25) + (75*0.2) + (90*0.15) + (40*0.1) = 25.5 + 17.5 + 15 + 13.5 + 4 = 75.5.
+
+Vision: 88.5
+Reasoning: The composite score is calculated using the formula: (attack*0.3) + (defence*0.25) + (speed*0.2) + (intelligence*0.15) + (tech*0.1). For Vision, this is (90*0.3) + (85*0.25) + (80*0.2) + (95*0.15) + (100*0.1) = 27 + 21.25 + 16 + 14.25 + 10 = 88.5.
+
+Doctor Strange: 79.5
+Reasoning: The composite score is calculated using the formula: (attack*0.3) + (defence*0.25) + (speed*0.2) + (intelligence*0.15) + (tech*0.1). For Doctor Strange, this is (85*0.3) + (80*0.25) + (70*0.2) + (100*0.15) + (50*0.1) = 25.5 + 20 + 14 + 15 + 5 = 79.5.
+
+Spiderman: 82.0
+Reasoning: The composite score is calculated using the formula: (attack*0.3) + (defence*0.25) + (speed*0.2) + (intelligence*0.15) + (tech*0.1). For Spiderman, this is (80*0.3) + (70*0.25) + (90*0.2) + (90*0.15) + (90*0.1) = 24 + 17.5 + 18 + 13.5 + 9 = 82.0.",0.00424
+gemini-2.0-flash,VSC,CAN_AVENGER_DEFEAT_AVENGER,1.066500186920166,93,688,23,711,"Can Defeat: Yes
+Reason: Thor has higher scores in Strength and Durability. He is also a God.
+",2e-05
+gemini-2.5-flash,VSC,CAN_AVENGER_DEFEAT_AVENGER,4.303183078765869,457,696,107,1488,"Can Defeat: Yes
+Reason: Thor possesses significantly higher strength (95 vs 80) and speed (85 vs 70) compared to Spiderman. Additionally, Thor is described as the ""God of Thunder"" and wields the enchanted hammer Mjolnir, indicating powerful offensive capabilities. While Spiderman has higher durability (90 vs 70), intelligence, and combat skill, Thor's superior raw power and speed, combined with his ""God of Thunder"" ability, would likely be overwhelming.",0.00048
+gemini-2.0-flash,VSC,CAN_AVENGER_HANDLE_THREAT,1.277073860168457,239,714,48,762,"Can Handle Threat: No
+Reason: Captain America's attributes are superhuman strength and agility. The threat is a cyber attack, which requires intellect, technology, or mystic arts, none of which Captain America possesses based on the data.
+",4e-05
+gemini-2.5-flash,VSC,CAN_AVENGER_HANDLE_THREAT,4.291859865188599,406,721,77,1353,"Can Handle Threat: No
+Reason: Captain America's listed capabilities are ""Superhuman strength and agility"" and being a ""super-soldier from World War II."" These attributes are physical and combat-oriented. The provided data does not indicate any technological expertise, cybersecurity knowledge, or abilities related to defending against or resolving an attack on data centers or a breach of global security.",0.00041
+gemini-2.0-flash,VSC,FIND_TOP_3_HIGHEST_STAT,1.4276158809661865,212,661,58,719,"Ranked avengers:
+Hulk
+Captain America
+Vision
+Reason: Hulk has the highest attack stat at 100. Captain America and Vision are tied at 90, but Captain America has a higher speed stat of 95 compared to Vision's 85.
+",4e-05
+gemini-2.5-flash,VSC,FIND_TOP_3_HIGHEST_STAT,3.7250008583068848,306,672,82,1379,"Ranked avengers:
+Iron Man
+Doctor Strange
+Vision
+Reason: Iron Man and Doctor Strange both have the highest attack stat of 100. Iron Man is ranked higher due to his speed of 90, which is greater than Doctor Strange's speed of 50, as per the tie-breaker rule. Vision is ranked third with an attack stat of 95.",0.00041
+gemini-2.0-flash,VSC,FIND_SUITABLE_AVENGER_FOR_TASK,1.229259967803955,181,684,34,718,"Chosen Avenger: Doctor Strange
+Reason: Doctor Strange has mastery of the mystic arts and is therefore best suited to help the user learn them and explore multi dimensional reality.
+",3e-05
+gemini-2.5-flash,VSC,FIND_SUITABLE_AVENGER_FOR_TASK,3.1278088092803955,208,692,45,1157,"Chosen Avenger: Doctor Strange
+Reason: Doctor Strange is described as having ""Mastery of the mystic arts"" and being the ""Sorcerer Supreme,"" which directly aligns with the user's desire to ""learn mystic arts.""",0.00032

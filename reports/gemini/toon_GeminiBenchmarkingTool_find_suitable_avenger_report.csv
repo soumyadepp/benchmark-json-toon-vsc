@@ -1,8 +1,0 @@
-model,file_format,task_type,latency_seconds,size_in_bytes,prompt_tokens,completion_tokens,total_tokens,response
-gemini-2.0-flash,TOON,FIND_SUITABLE_AVENGER_FOR_TASK,1.533294916152954,125,1077,25,1102,"Chosen Avenger: Ant Man
-Reason: With his size manipulation power, Ant Man can shrink and infiltrate the building undetected.
-"
-gemini-2.5-flash,TOON,FIND_SUITABLE_AVENGER_FOR_TASK,11.049901723861694,420,1085,86,3168,"Chosen Avenger: Ant Man
-Reason: Ant Man's ""Size manipulation"" power allows him to shrink to microscopic levels, making him ideal for stealthily ""breaking into a very secure building"" by bypassing physical security measures like locks, cameras, and guards through tiny openings. Additionally, his high intelligence (85) and tech (80) stats indicate he possesses the necessary skills to ""steal important data"" once inside."
-gemini-2.5-pro,TOON,FIND_SUITABLE_AVENGER_FOR_TASK,16.083736658096313,319,1085,68,2950,"Chosen Avenger: Ant Man
-Reason: His power is ""Size manipulation,"" and the description specifies he ""can shrink to the size of an ant,"" which is the most suitable ability for infiltrating a secure building. Furthermore, his `tech` stat is 80, indicating he has the technical skill required to steal the data once inside."

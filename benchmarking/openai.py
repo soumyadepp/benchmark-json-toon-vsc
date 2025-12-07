@@ -8,7 +8,11 @@ import logging
 from typing import List
 from openai import OpenAI
 
-from .base import BenchmarkingToolBase, BenchMarkingResultBase
+from .base import (
+    BenchmarkingToolBase,
+    BenchmarkingResultBase,
+    BenchmarkingToolResultExporter,
+)
 from .constants import COSTING_MAP
 from .prompt_builder import PromptBuilder
 from .utils import calculate_latency, calculate_cost
@@ -18,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 
 @dataclasses.dataclass
-class OpenAIBenchmarkResult(BenchMarkingResultBase):
+class OpenAIBenchmarkResult(BenchmarkingResultBase):
     pass
 
 
@@ -37,8 +41,6 @@ class OpenAIBenchmarkingTool(BenchmarkingToolBase):
         "gpt-4",
         "gpt-5.1",
     ]
-
-    DIR_TO_SAVE_RESULTS: str = "reports/openai/"
 
     def __init__(self) -> None:
         super().__init__()
@@ -64,6 +66,7 @@ class OpenAIBenchmarkingTool(BenchmarkingToolBase):
             start_time = time.time()
             response = self.client.chat.completions.create(
                 model=model,
+                temperature=0,
                 messages=[
                     {
                         "role": "user",
@@ -104,7 +107,7 @@ class OpenAIBenchmarkingTool(BenchmarkingToolBase):
 
     def run_benchmarking_on_models(
         self, task_type: TaskTypes, file_format: FileFormats, **kwargs
-    ) -> None:
+    ) -> list[OpenAIBenchmarkResult]:
         """Run benchmarking on the models
 
         Args:
@@ -113,7 +116,9 @@ class OpenAIBenchmarkingTool(BenchmarkingToolBase):
         """
         bm_results: List[OpenAIBenchmarkResult] = []
 
-        logger.info(f"Prompting with file format: {file_format.name}")
+        logger.info(
+            f"Prompting for task: {task_type.value} with file format: {file_format.name}"
+        )
         prompt = PromptBuilder(file_format=file_format).build_prompt(
             task_type=task_type, **kwargs
         )
@@ -131,24 +136,32 @@ class OpenAIBenchmarkingTool(BenchmarkingToolBase):
                     continue
 
                 bm_results.append(result)
+
+            return bm_results
         except Exception as e:
             logger.error("Error running benchmark %s", e)
-            return
+            return []
 
-    def export_results_to_csv(self, file_path: str) -> None:
+
+class OpenAIBenchmarkingReportExporter(BenchmarkingToolResultExporter):
+    """Exporter to export benchmarking report for openai models"""
+
+    DIR_TO_SAVE_RESULTS = "reports/openai"
+
+    def export_to_csv(
+        self, results: list[OpenAIBenchmarkResult], filename: str
+    ) -> None:
         """Export the benchmarking results DataFrame to a CSV file."""
 
-        benchmarking_results = self.results.results
-
-        if not benchmarking_results:
+        if not results:
             logger.warning("No results to export.")
             return
 
-        keys = benchmarking_results[0].keys()
-        file_path = os.path.join(self.DIR_TO_SAVE_RESULTS, file_path)
+        keys = results[0].keys()
+        file_path = os.path.join(self.DIR_TO_SAVE_RESULTS, filename)
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         with open(file_path, "w", newline="", encoding="utf-8") as f:
             dict_writer = csv.DictWriter(f, keys)
             dict_writer.writeheader()
-            dict_writer.writerows(benchmarking_results)
+            dict_writer.writerows(results)
             logger.info(f"Results exported to {file_path}")
