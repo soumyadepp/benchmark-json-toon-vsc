@@ -20,3 +20,6 @@ class TaskTypes(str, Enum):
     CALCULATE_COMPOSITE_SCORE = "calculate_composite_score"
     FIND_TOP_3_HIGHEST_STAT = "find_top_3_highest_stat"
     ASSESS_RESPONSE_CONSISTENCY = "assess_response_consistency"
+    CREATE_BALANCED_TEAM = "create_balanced_team"
+    TEAM_SYNERGY_SCORE = "team_synergy_score"
+    WEAKNESS_ASSESSMENT = "weakness_assessment"

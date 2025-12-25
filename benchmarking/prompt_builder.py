@@ -14,6 +14,10 @@ class PromptBuilder:
     DEFAULT_AVENGER_NAME_FOR_THREAT = "Thor"
     DEFAULT_AVENGER_NAME_FOR_ATTRIBUTES = "Doctor Strange"
     DEFAULT_STAT = "attack"
+    DEFAULT_THREAT = "Loki has stolen the Tesseract and is planning to open a portal to unleash an alien army upon New York City."
+    DEFAULT_AVENGER1_NAME_FOR_SYNERGY = "Iron Man"
+    DEFAULT_AVENGER2_NAME_FOR_SYNERGY = "Captain America"
+    DEFAULT_AVENGER_NAME_FOR_WEAKNESS = "Hulk"
 
     def __init__(self, file_format: FileFormats) -> None:
         self.file_format = file_format
@@ -61,6 +65,25 @@ class PromptBuilder:
         )
 
         return build_calculate_composite_score_prompt(self.raw_text)
+
+    def __build_prompt_for_create_balanced_team(self, threat: str) -> str:
+        from prompts.create_balanced_team import build_create_balanced_team_prompt
+
+        return build_create_balanced_team_prompt(self.raw_text, threat)
+
+    def __build_prompt_for_team_synergy_score(
+        self, avenger1_name: str, avenger2_name: str
+    ) -> str:
+        from prompts.team_synergy_score import build_team_synergy_score_prompt
+
+        return build_team_synergy_score_prompt(
+            self.raw_text, avenger1_name, avenger2_name
+        )
+
+    def __build_prompt_for_weakness_assessment(self, avenger_name: str) -> str:
+        from prompts.weakness_assessment import build_weakness_assessment_prompt
+
+        return build_weakness_assessment_prompt(self.raw_text, avenger_name)
 
     def build_prompt(self, task_type: TaskTypes, **kwargs) -> str:
         """Build a prompt based on the task type and file format.
@@ -114,6 +137,27 @@ class PromptBuilder:
             case TaskTypes.FIND_TOP_3_HIGHEST_STAT:
                 stat = kwargs.get("stat", self.DEFAULT_STAT)
                 return self.__build_prompt_for_rank_top_3_highest_stat(stat_name=stat)
+
+            case TaskTypes.CREATE_BALANCED_TEAM:
+                threat = kwargs.get("threat", self.DEFAULT_THREAT)
+                return self.__build_prompt_for_create_balanced_team(threat)
+
+            case TaskTypes.TEAM_SYNERGY_SCORE:
+                avenger1_name = kwargs.get(
+                    "avenger1_name", self.DEFAULT_AVENGER1_NAME_FOR_SYNERGY
+                )
+                avenger2_name = kwargs.get(
+                    "avenger2_name", self.DEFAULT_AVENGER2_NAME_FOR_SYNERGY
+                )
+                return self.__build_prompt_for_team_synergy_score(
+                    avenger1_name, avenger2_name
+                )
+
+            case TaskTypes.WEAKNESS_ASSESSMENT:
+                avenger_name = kwargs.get(
+                    "avenger_name", self.DEFAULT_AVENGER_NAME_FOR_WEAKNESS
+                )
+                return self.__build_prompt_for_weakness_assessment(avenger_name)
 
             case _:
                 raise ValueError(f"Unsupported task type: {task_type}")

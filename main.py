@@ -59,26 +59,45 @@ def run_benchmarking_on_file_format(
             user_task="I want to explore multi dimensional reality and learn mystic arts",
         )
     )
+    results.extend(
+        tool_instance.run_benchmarking_on_models(
+            task_type=TaskTypes.CREATE_BALANCED_TEAM,
+            file_format=file_format,
+            threat="Loki has stolen the Tesseract and is planning to open a portal to unleash an alien army upon New York City.",
+        )
+    )
+    results.extend(
+        tool_instance.run_benchmarking_on_models(
+            task_type=TaskTypes.TEAM_SYNERGY_SCORE,
+            file_format=file_format,
+            avenger1_name="Iron Man",
+            avenger2_name="Captain America",
+        )
+    )
+    results.extend(
+        tool_instance.run_benchmarking_on_models(
+            task_type=TaskTypes.WEAKNESS_ASSESSMENT,
+            file_format=file_format,
+            avenger_name="Hulk",
+        )
+    )
 
     return results
 
 
-if __name__ == "__main__":
-    openai_results: list[OpenAIBenchmarkResult] = []
-    gemini_results: list[GeminiBenchmarkResult] = []
+def run_benchmarking_on_tool_and_export_results(tool: BenchmarkingToolBase):
+    results: list[BenchmarkingResultBase] = []
     for file_format in FileFormats:
-        openai_results.extend(
-            run_benchmarking_on_file_format(OpenAIBenchmarkingTool(), file_format)
+        results.extend(
+            run_benchmarking_on_file_format(tool_instance=tool, file_format=file_format)
         )
-        gemini_results.extend(
-            run_benchmarking_on_file_format(GeminiBenchmarkingTool(), file_format)
-        )
+    if isinstance(tool, OpenAIBenchmarkingTool):
+        exporter = OpenAIBenchmarkingReportExporter()
+        exporter.export_to_csv(results=results, filename="tasks-openai.csv")
+    elif isinstance(tool, GeminiBenchmarkingTool):
+        exporter = GeminiBenchmarkingReportExporter()
+        exporter.export_to_csv(results=results, filename="tasks-gemini.csv")
 
-    openai_results_exporter = OpenAIBenchmarkingReportExporter()
-    gemini_results_exporter = GeminiBenchmarkingReportExporter()
-    openai_results_exporter.export_to_csv(
-        results=openai_results, filename="tasks-openai.csv"
-    )
-    gemini_results_exporter.export_to_csv(
-        results=gemini_results, filename="tasks-gemini.csv"
-    )
+
+if __name__ == "__main__":
+    run_benchmarking_on_tool_and_export_results(tool=OpenAIBenchmarkingTool())
