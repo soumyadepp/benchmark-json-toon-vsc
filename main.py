@@ -3,8 +3,7 @@ from tasks import FileFormats, TaskTypes
 from benchmarking import (
     BenchmarkingToolBase,
     BenchmarkingResultBase,
-    OpenAIBenchmarkResult,
-    GeminiBenchmarkResult,
+    BenchmarkingToolResultExporter,
     OpenAIBenchmarkingTool,
     OpenAIBenchmarkingReportExporter,
     GeminiBenchmarkingTool,
@@ -85,19 +84,27 @@ def run_benchmarking_on_file_format(
     return results
 
 
-def run_benchmarking_on_tool_and_export_results(tool: BenchmarkingToolBase):
+def run_benchmarking_on_tool_and_export_results(
+    tool: BenchmarkingToolBase,
+    exporter: BenchmarkingToolResultExporter,
+    filename: str = "benchmarking_results.csv",
+) -> None:
     results: list[BenchmarkingResultBase] = []
     for file_format in FileFormats:
         results.extend(
             run_benchmarking_on_file_format(tool_instance=tool, file_format=file_format)
         )
-    if isinstance(tool, OpenAIBenchmarkingTool):
-        exporter = OpenAIBenchmarkingReportExporter()
-        exporter.export_to_csv(results=results, filename="tasks-openai.csv")
-    elif isinstance(tool, GeminiBenchmarkingTool):
-        exporter = GeminiBenchmarkingReportExporter()
-        exporter.export_to_csv(results=results, filename="tasks-gemini.csv")
+    exporter.export_to_csv(results=results, filename=filename)
 
 
 if __name__ == "__main__":
-    run_benchmarking_on_tool_and_export_results(tool=OpenAIBenchmarkingTool())
+    run_benchmarking_on_tool_and_export_results(
+        tool=OpenAIBenchmarkingTool(),
+        exporter=OpenAIBenchmarkingReportExporter(),
+        filename="openai_benchmarking_results.csv",
+    )
+    run_benchmarking_on_tool_and_export_results(
+        tool=GeminiBenchmarkingTool(),
+        exporter=GeminiBenchmarkingReportExporter(),
+        filename="gemini_benchmarking_results.csv",
+    )

@@ -1,5 +1,6 @@
 from .base import BenchmarkingToolBase
 from .base import BenchmarkingResultBase
+from .base import BenchmarkingToolResultExporter
 from .openai import OpenAIBenchmarkingTool
 from .openai import OpenAIBenchmarkingReportExporter
 from .openai import OpenAIBenchmarkingResults, OpenAIBenchmarkResult
@@ -9,6 +10,7 @@ from .gemini import GeminiBenchmarkingResults, GeminiBenchmarkResult
 
 __all__ = [
     "BenchmarkingToolBase",
+    "BenchmarkingToolResultExporter",
     "BenchmarkingResultBase",
     "OpenAIBenchmarkingTool",
     "OpenAIBenchmarkingReportExporter",
