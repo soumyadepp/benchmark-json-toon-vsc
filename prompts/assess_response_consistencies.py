@@ -34,6 +34,22 @@ ASSESS_RESPONSE_CONSISTENCIES = textwrap.dedent(
 
 
 def build_assess_response_consistencies_prompt(raw_text: str, responses: str) -> str:
+    """
+    Builds a prompt for assessing response consistencies.
+
+    This function constructs a prompt that instructs a language model to act as an
+    expert analyst and assess the consistency of a set of responses against a given
+    dataset of Avengers. The prompt includes the raw text of the dataset, the
+    responses to be evaluated, and instructions on how to format the assessment.
+
+    Args:
+        raw_text (str): The raw text of the Avengers dataset.
+        responses (str): A string containing the responses to be assessed, formatted
+            with task names and file formats.
+
+    Returns:
+        str: A formatted prompt ready to be used with a language model.
+    """
     return ASSESS_RESPONSE_CONSISTENCIES.format(
         raw_text=raw_text,
         responses=responses,

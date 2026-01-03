@@ -35,7 +35,25 @@ TEAM_SYNERGY_SCORE = textwrap.dedent(
 )
 
 
-def build_team_synergy_score_prompt(raw_text: str, avenger1_name: str, avenger2_name: str) -> str:
+def build_team_synergy_score_prompt(
+    raw_text: str, avenger1_name: str, avenger2_name: str
+) -> str:
+    """
+    Builds a prompt for calculating the synergy score between two Avengers.
+
+    This function constructs a prompt that instructs a language model to act as a
+    strategic analyst and evaluate the synergy between a pair of Avengers. The
+    prompt includes the raw text of the Avengers dataset and the names of the two
+    Avengers to be assessed.
+
+    Args:
+        raw_text (str): The raw text of the Avengers dataset.
+        avenger1_name (str): The name of the first Avenger in the pair.
+        avenger2_name (str): The name of the second Avenger in the pair.
+
+    Returns:
+        str: A formatted prompt ready to be used with a language model.
+    """
     return TEAM_SYNERGY_SCORE.format(
         raw_text=raw_text, avenger1_name=avenger1_name, avenger2_name=avenger2_name
     )

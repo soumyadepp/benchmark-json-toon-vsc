@@ -1,4 +1,5 @@
 import logging
+from dotenv import load_dotenv
 from tasks import FileFormats, TaskTypes
 from benchmarking import (
     BenchmarkingToolBase,
@@ -10,6 +11,7 @@ from benchmarking import (
     GeminiBenchmarkingReportExporter,
 )
 
+load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -17,10 +19,25 @@ logger = logging.getLogger(__name__)
 def run_benchmarking_on_file_format(
     tool_instance: BenchmarkingToolBase, file_format: FileFormats
 ) -> list[BenchmarkingResultBase]:
-    """Runs benchmarking for all tasks on all models of a given benchmarker for a single file format.
+    """
+    Runs a series of benchmarking tasks for a given tool instance and file format.
+
+    This function executes a predefined set of benchmarking tasks using the provided
+    tool instance. It iterates through various task types, such as calculating composite
+    scores, assessing avenger capabilities, and creating balanced teams, all based on
+    the specified file format.
 
     Args:
-        file_format (FileFormats): The file format to take input in.
+        tool_instance (BenchmarkingToolBase): An instance of a benchmarking tool (e.g.,
+            OpenAIBenchmarkingTool, GeminiBenchmarkingTool) that will be used to run the
+            tasks.
+        file_format (FileFormats): The file format to be used for the input data during
+            benchmarking. This determines which version of the dataset is used (e.g.,
+            JSON, TOON, VSC).
+
+    Returns:
+        list[BenchmarkingResultBase]: A list of benchmarking result objects, where each
+            object contains the results of a single benchmarking task.
     """
     results: list[BenchmarkingResultBase] = []
     results.extend(
@@ -89,6 +106,21 @@ def run_benchmarking_on_tool_and_export_results(
     exporter: BenchmarkingToolResultExporter,
     filename: str = "benchmarking_results.csv",
 ) -> None:
+    """
+    Runs benchmarking tasks for a given tool across all file formats and exports the results.
+
+    This function orchestrates the benchmarking process by iterating through all available
+    file formats (JSON, TOON, VSC), running the full suite of benchmarking tasks for
+    each, and then exporting the consolidated results to a CSV file.
+
+    Args:
+        tool (BenchmarkingToolBase): The benchmarking tool to be used (e.g.,
+            OpenAIBenchmarkingTool, GeminiBenchmarkingTool).
+        exporter (BenchmarkingToolResultExporter): The exporter to be used for saving
+            the benchmarking results to a file.
+        filename (str, optional): The name of the output CSV file. Defaults to
+            "benchmarking_results.csv".
+    """
     results: list[BenchmarkingResultBase] = []
     for file_format in FileFormats:
         results.extend(
@@ -98,11 +130,11 @@ def run_benchmarking_on_tool_and_export_results(
 
 
 if __name__ == "__main__":
-    run_benchmarking_on_tool_and_export_results(
-        tool=OpenAIBenchmarkingTool(),
-        exporter=OpenAIBenchmarkingReportExporter(),
-        filename="openai_benchmarking_results.csv",
-    )
+    # run_benchmarking_on_tool_and_export_results(
+    #     tool=OpenAIBenchmarkingTool(),
+    #     exporter=OpenAIBenchmarkingReportExporter(),
+    #     filename="openai_benchmarking_results.csv",
+    # )
     run_benchmarking_on_tool_and_export_results(
         tool=GeminiBenchmarkingTool(),
         exporter=GeminiBenchmarkingReportExporter(),

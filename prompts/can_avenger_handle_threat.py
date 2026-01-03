@@ -33,6 +33,22 @@ CAN_AVENGER_HANDLE_THREAT = textwrap.dedent(
 def build_can_avenger_handle_threat_prompt(
     raw_text: str, threat_description: str, avenger_name: str
 ) -> str:
+    """
+    Builds a prompt for determining if an Avenger can handle a given threat.
+
+    This function constructs a prompt that instructs a language model to act as an
+    expert analyst and assess whether a specified Avenger has the capabilities to
+    handle a described threat. The prompt includes the raw text of the Avengers
+    dataset, the threat description, and the name of the Avenger to be assessed.
+
+    Args:
+        raw_text (str): The raw text of the Avengers dataset.
+        threat_description (str): A description of the threat to be handled.
+        avenger_name (str): The name of the Avenger to assess.
+
+    Returns:
+        str: A formatted prompt ready to be used with a language model.
+    """
     return CAN_AVENGER_HANDLE_THREAT.format(
         raw_text=raw_text,
         threat_description=threat_description,

@@ -30,4 +30,18 @@ CALCULATE_COMPOSITE_SCORE = textwrap.dedent(
 
 
 def build_calculate_composite_score_prompt(raw_text: str) -> str:
+    """
+    Builds a prompt for calculating the composite score of each Avenger.
+
+    This function constructs a prompt that instructs a language model to act as an
+    expert analyst and calculate a composite score for each Avenger in a given
+    dataset. The prompt provides the formula for the composite score and specifies
+    the output format.
+
+    Args:
+        raw_text (str): The raw text of the Avengers dataset.
+
+    Returns:
+        str: A formatted prompt ready to be used with a language model.
+    """
     return CALCULATE_COMPOSITE_SCORE.format(raw_text=raw_text)

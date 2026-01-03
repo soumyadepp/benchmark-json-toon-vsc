@@ -31,6 +31,22 @@ CAN_AVENGER_DEFEAT_AVENGER = textwrap.dedent(
 def build_can_avenger_defeat_avenger_prompt(
     raw_text: str, avenger_1_name: str, avenger_2_name: str
 ) -> str:
+    """
+    Builds a prompt for determining if one Avenger can defeat another.
+
+    This function constructs a prompt that instructs a language model to act as an
+    expert analyst and determine whether a specified Avenger can defeat another in a
+    hypothetical battle. The prompt includes the raw text of the Avengers dataset
+    and the names of the two Avengers to be compared.
+
+    Args:
+        raw_text (str): The raw text of the Avengers dataset.
+        avenger_1_name (str): The name of the first Avenger.
+        avenger_2_name (str): The name of the second Avenger.
+
+    Returns:
+        str: A formatted prompt ready to be used with a language model.
+    """
     return CAN_AVENGER_DEFEAT_AVENGER.format(
         raw_text=raw_text,
         avenger_1_name=avenger_1_name,

@@ -23,12 +23,19 @@ logger = logging.getLogger(__name__)
 
 @dataclasses.dataclass
 class GeminiBenchmarkResult(BenchmarkingResultBase):
+    """Represents the result of a single benchmark run using a Gemini model."""
+
     pass
 
 
 @dataclasses.dataclass
 class GeminiBenchmarkingResults:
-    """Container for a list of benchmark results."""
+    """
+    A container class for storing a list of Gemini benchmark results.
+
+    This class is used to group together the results of multiple benchmarking runs,
+    making it easier to manage and process the data collectively.
+    """
 
     results: list[GeminiBenchmarkResult]
 
@@ -50,21 +57,40 @@ class GeminiBenchmarkingTool(BenchmarkingToolBase):
         self.results: GeminiBenchmarkingResults = GeminiBenchmarkingResults(results=[])
 
     def call_llm_and_format_response(
-        self, model: str, prompt: str, task_type: TaskTypes, file_format: FileFormats
+        self,
+        model: str,
+        prompt: str,
+        task_type: TaskTypes,
+        file_format: FileFormats,
     ) -> GeminiBenchmarkResult | None:
-        """Calls Gemini model with given prompt
+        """
+        Calls the Gemini model with the given prompt and formats the response.
+
+        This method sends a prompt to the specified Gemini model, measures the
+        performance of the call, and formats the response into a structured
+        `GeminiBenchmarkResult` object. It captures metrics such as latency, token
+        counts, and cost.
 
         Args:
-            model (str): The LLM model to use.
+
+            model (str): The name of the Gemini model to use (e.g., "gemini-2.0-flash").
+
             prompt (str): The prompt to send to the model.
 
+            task_type (TaskTypes): The type of task being benchmarked.
+
+            file_format (FileFormats): The file format used for the input data.
 
         Raises:
-            ValueError: If the model is not supported.
+
+            ValueError: If the specified model is not supported by this tool.
 
         Returns:
-            GenerateContentResponse: The response from the model.
+            GeminiBenchmarkResult | None: A `GeminiBenchmarkResult` object containing
+                the benchmarking data, or `None` if an error occurred during the API
+                call.
         """
+
         if model not in self.MODELS_TO_ANALYZE:
             raise ValueError(f"Unsupported model: {model}")
 
@@ -79,7 +105,7 @@ class GeminiBenchmarkingTool(BenchmarkingToolBase):
             return {
                 "model": model,
                 "file_format": file_format.name,
-                "task_type": task_type.name,
+                "task_type": task_type,
                 "latency_seconds": calculate_latency(start_time),
                 "size_in_bytes": len(response.text.encode("utf-8")),
                 "prompt_tokens": response.usage_metadata.prompt_token_count,
@@ -99,12 +125,22 @@ class GeminiBenchmarkingTool(BenchmarkingToolBase):
     def run_benchmarking_on_models(
         self, task_type: TaskTypes, file_format: FileFormats, **kwargs
     ) -> list[GeminiBenchmarkResult]:
-        """Run benchmarking on the MODELS_TO_ANALYZE.
+        """
+        Runs benchmarking for a given task and file format across all supported models.
+
+        This method builds a prompt for the specified task, then iterates through the
+        list of supported Gemini models, calling each one with the prompt. It collects
+        the results of each model execution and returns them as a list.
 
         Args:
-            task_type: The task for which benchmarking is to be run.
-            file_format: The file format to use for the task.
-            **kwargs: Additional keyword arguments.
+            task_type (TaskTypes): The type of task to benchmark.
+            file_format (FileFormats): The file format to use for the task's input data.
+            **kwargs: Additional keyword arguments to be passed to the prompt builder.
+
+        Returns:
+            list[GeminiBenchmarkResult]: A list of `GeminiBenchmarkResult` objects,
+                with each object representing the result of a single model's execution.
+                Returns an empty list if an error occurs.
         """
         bm_results: List[GeminiBenchmarkResult] = []
 
@@ -140,6 +176,14 @@ class GeminiBenchmarkingTool(BenchmarkingToolBase):
 
 
 class GeminiBenchmarkingReportExporter(BenchmarkingToolResultExporter):
+    """
+    A class for exporting Gemini benchmarking results to a CSV file.
+
+    This class provides the functionality to take a list of Gemini benchmark
+    results and write them to a specified CSV file, making it easy to save and
+    analyze the data.
+    """
+
     def __init__(self) -> None:
         self.DIR_TO_SAVE_RESULTS = "reports/gemini"
 

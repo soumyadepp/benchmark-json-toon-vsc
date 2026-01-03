@@ -38,4 +38,19 @@ CREATE_BALANCED_TEAM = textwrap.dedent(
 
 
 def build_create_balanced_team_prompt(raw_text: str, threat: str) -> str:
+    """
+    Builds a prompt for creating a balanced team of Avengers to handle a threat.
+
+    This function constructs a prompt that instructs a language model to act as a
+    strategic expert and assemble a balanced team of three Avengers to counter a
+    specific threat. The prompt includes the raw text of the Avengers dataset and a
+    description of the threat.
+
+    Args:
+        raw_text (str): The raw text of the Avengers dataset.
+        threat (str): A description of the threat to be handled.
+
+    Returns:
+        str: A formatted prompt ready to be used with a language model.
+    """
     return CREATE_BALANCED_TEAM.format(raw_text=raw_text, threat=threat)

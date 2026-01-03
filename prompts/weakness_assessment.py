@@ -35,4 +35,19 @@ WEAKNESS_ASSESSMENT = textwrap.dedent(
 
 
 def build_weakness_assessment_prompt(raw_text: str, avenger_name: str) -> str:
+    """
+    Builds a prompt for assessing the weaknesses of an Avenger.
+
+    This function constructs a prompt that instructs a language model to act as a
+    strategic analyst and identify potential weaknesses of a specified Avenger.
+    The prompt includes the raw text of the Avengers dataset and the name of the
+    Avenger to be assessed.
+
+    Args:
+        raw_text (str): The raw text of the Avengers dataset.
+        avenger_name (str): The name of the Avenger to be assessed.
+
+    Returns:
+        str: A formatted prompt ready to be used with a language model.
+    """
     return WEAKNESS_ASSESSMENT.format(raw_text=raw_text, avenger_name=avenger_name)
